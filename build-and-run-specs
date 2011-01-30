@@ -1,0 +1,3 @@
+#! /bin/bash
+export NUNIT_CONSOLE=nunit-console4
+./build && nunit-color-console bin/Debug/EasyOData.Specs.dll
