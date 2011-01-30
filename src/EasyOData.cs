@@ -23,6 +23,18 @@ namespace EasyOData {
 				public static Filters.Filter _NotEqual(this string propertyName, object value) {
 					return new Filters.NotEqualsFilter(propertyName, value);
 				}
+
+				public static Filters.Filter _StartsWith(this string propertyName, object value) {
+					return new Filters.StartsWithFilter(propertyName, value);
+				}
+
+				public static Filters.Filter _EndsWith(this string propertyName, object value) {
+					return new Filters.EndsWithFilter(propertyName, value);
+				}
+
+				public static Filters.Filter _Contains(this string propertyName, object value) {
+					return new Filters.ContainsFilter(propertyName, value);
+				}
 			}
 		}
 
@@ -95,6 +107,27 @@ namespace EasyOData {
 		public class NotEqualsFilter : SimpleOperatorFilter {
 			public NotEqualsFilter(string propertyName, object value) : base(propertyName, value) {}
 			public override string Operator { get { return "ne"; } }
+		}
+
+		public class StartsWithFilter : Filter {
+			public StartsWithFilter(string propertyName, object value) : base(propertyName, value) {}
+			public override string ToString() {
+				return string.Format("startswith({0}, {1}) eq true", PropertyName, ValueString);
+			}
+		}
+
+		public class EndsWithFilter : Filter {
+			public EndsWithFilter(string propertyName, object value) : base(propertyName, value) {}
+			public override string ToString() {
+				return string.Format("endswith({0}, {1}) eq true", PropertyName, ValueString);
+			}
+		}
+
+		public class ContainsFilter : Filter {
+			public ContainsFilter(string propertyName, object value) : base(propertyName, value) {}
+			public override string ToString() {
+				return string.Format("substringof({0}, {1}) eq true", ValueString, PropertyName);
+			}
 		}
 	}
 
