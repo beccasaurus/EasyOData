@@ -1,0 +1,112 @@
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Content-Length: 4935
+Content-Type: application/atom+xml;charset=utf-8
+Server: Microsoft-IIS/7.0
+DataServiceVersion: 2.0;
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Sun, 30 Jan 2011 04:23:08 GMT
+
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<feed xml:base="http://packages.nuget.org/v1/FeedService.svc/" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">Screenshots</title>
+  <id>http://packages.nuget.org/v1/FeedService.svc/Screenshots</id>
+  <updated>2011-01-30T04:23:08Z</updated>
+  <link rel="self" title="Screenshots" href="Screenshots" />
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Screenshots(3)</id>
+    <title type="text"></title>
+    <updated>2011-01-30T04:23:08Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit" title="PublishedScreenshot" href="Screenshots(3)" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedScreenshot" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/xml">
+      <m:properties>
+        <d:Id m:type="Edm.Int32">3</d:Id>
+        <d:PublishedPackageId>RazorDebugger</d:PublishedPackageId>
+        <d:PublishedPackageVersion>0.1</d:PublishedPackageVersion>
+        <d:ScreenshotUri>http://weblogs.asp.net/blogs/davidfowler/image_65B795EF.png</d:ScreenshotUri>
+        <d:Caption m:null="true" />
+      </m:properties>
+    </content>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Screenshots(4)</id>
+    <title type="text"></title>
+    <updated>2011-01-30T04:23:08Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit" title="PublishedScreenshot" href="Screenshots(4)" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedScreenshot" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/xml">
+      <m:properties>
+        <d:Id m:type="Edm.Int32">4</d:Id>
+        <d:PublishedPackageId>RazorDebugger</d:PublishedPackageId>
+        <d:PublishedPackageVersion>0.1</d:PublishedPackageVersion>
+        <d:ScreenshotUri>http://weblogs.asp.net/blogs/davidfowler/image_69A19827.png</d:ScreenshotUri>
+        <d:Caption m:null="true" />
+      </m:properties>
+    </content>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Screenshots(5)</id>
+    <title type="text"></title>
+    <updated>2011-01-30T04:23:08Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit" title="PublishedScreenshot" href="Screenshots(5)" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedScreenshot" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/xml">
+      <m:properties>
+        <d:Id m:type="Edm.Int32">5</d:Id>
+        <d:PublishedPackageId>SimpleBasicAuthenticationModule</d:PublishedPackageId>
+        <d:PublishedPackageVersion>0.1</d:PublishedPackageVersion>
+        <d:ScreenshotUri>/Media/Default/Packages/SimpleBasicAuthenticationModule/0.1/Screenshots/SimpleBasicAuthentication.PNG</d:ScreenshotUri>
+        <d:Caption m:null="true" />
+      </m:properties>
+    </content>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Screenshots(6)</id>
+    <title type="text"></title>
+    <updated>2011-01-30T04:23:08Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit" title="PublishedScreenshot" href="Screenshots(6)" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedScreenshot" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/xml">
+      <m:properties>
+        <d:Id m:type="Edm.Int32">6</d:Id>
+        <d:PublishedPackageId>entile-server</d:PublishedPackageId>
+        <d:PublishedPackageVersion>0.1.1</d:PublishedPackageVersion>
+        <d:ScreenshotUri>/Media/Default/Packages/entile-server/0.1.1/Screenshots/Entile-Screenshot1.jpg</d:ScreenshotUri>
+        <d:Caption m:null="true" />
+      </m:properties>
+    </content>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Screenshots(7)</id>
+    <title type="text"></title>
+    <updated>2011-01-30T04:23:08Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit" title="PublishedScreenshot" href="Screenshots(7)" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedScreenshot" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/xml">
+      <m:properties>
+        <d:Id m:type="Edm.Int32">7</d:Id>
+        <d:PublishedPackageId>entile-client</d:PublishedPackageId>
+        <d:PublishedPackageVersion>0.1.0</d:PublishedPackageVersion>
+        <d:ScreenshotUri>/Media/Default/Packages/entile-client/0.1.0/Screenshots/Entile-Screenshot1.jpg</d:ScreenshotUri>
+        <d:Caption m:null="true" />
+      </m:properties>
+    </content>
+  </entry>
+</feed>

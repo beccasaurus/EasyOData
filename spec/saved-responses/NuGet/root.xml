@@ -1,0 +1,22 @@
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Content-Length: 513
+Content-Type: application/xml;charset=utf-8
+Server: Microsoft-IIS/7.0
+DataServiceVersion: 1.0;
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Sun, 30 Jan 2011 04:22:10 GMT
+
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<service xml:base="http://packages.nuget.org/v1/FeedService.svc/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:app="http://www.w3.org/2007/app" xmlns="http://www.w3.org/2007/app">
+  <workspace>
+    <atom:title>Default</atom:title>
+    <collection href="Packages">
+      <atom:title>Packages</atom:title>
+    </collection>
+    <collection href="Screenshots">
+      <atom:title>Screenshots</atom:title>
+    </collection>
+  </workspace>
+</service>
