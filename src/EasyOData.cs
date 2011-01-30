@@ -68,51 +68,51 @@ namespace EasyOData {
 	}
 
 	public abstract class QueryOption {
+
+		// 5
+		// Name
 		public virtual object Value { get; set; }
+
+		// $top
+		// $select
+		public virtual string Key {
+			get { return "$" + GetType().Name.Replace("QueryOption","").ToLower(); }
+		}
 		
 		public QueryOption() {}
 		public QueryOption(object value) {
 			Value = value;
 		}
 
-		public abstract string AddToPath(string path);
-
 		public virtual string AddQueryString(string path, string queryKey, string queryValue) {
 			path += path.Contains("?") ? "&" : "?";
 			return string.Format("{0}{1}={2}", path, queryKey, HttpUtility.UrlEncode(queryValue));
 		}
+
+		public virtual string AddToPath(string path) {
+			return AddQueryString(path, Key, Value.ToString());
+		}
 	}
 
 	public class TopQueryOption : QueryOption {
-		public TopQueryOption()         : base()  {}
 		public TopQueryOption(object v) : base(v) {}
 
 		public new int Value {
 			get { return (int) base.Value; }
 			set { base.Value = value;      }
 		}
-
-		public override string AddToPath(string path) {
-			return AddQueryString(path, "$top", Value.ToString());
-		}
 	}
 
 	public class SkipQueryOption : QueryOption {
-		public SkipQueryOption()         : base()  {}
 		public SkipQueryOption(object v) : base(v) {}
 
 		public new int Value {
 			get { return (int) base.Value; }
 			set { base.Value = value;      }
 		}
-
-		public override string AddToPath(string path) {
-			return AddQueryString(path, "$skip", Value.ToString());
-		}
 	}
 
 	public class SelectQueryOption : QueryOption {
-		public SelectQueryOption()         : base()  {}
 		public SelectQueryOption(object v) : base(v) {}
 
 		public new string[] Value {
@@ -121,7 +121,43 @@ namespace EasyOData {
 		}
 
 		public override string AddToPath(string path) {
-			return AddQueryString(path, "$select", string.Join(",", Value).Replace(" ",""));
+			return AddQueryString(path, Key, string.Join(",", Value).Replace(" ",""));
+		}
+	}
+
+	public class ExpandQueryOption : QueryOption {
+		public ExpandQueryOption(object v) : base(v) {}
+
+		public new string[] Value {
+			get { return base.Value as string[]; }
+			set { base.Value = value;            }
+		}
+
+		public override string AddToPath(string path) {
+			return AddQueryString(path, Key, string.Join(",", Value).Replace(" ",""));
+		}
+	}
+
+	public class OrderByQueryOption : QueryOption {
+		public OrderByQueryOption(object v) : base(v) {}
+
+		public new string[] Value {
+			get { return base.Value as string[]; }
+			set { base.Value = value;            }
+		}
+
+		public override string AddToPath(string path) {
+			// can have spaces, eg. "Name asc" (should encode to %20 - HttpUtility encodes to +, which we fix)
+			return AddQueryString(path, Key, string.Join(",", Value)).Replace("+", "%20");
+		}
+	}
+
+	public class InlineCountQueryOption : QueryOption {
+		public InlineCountQueryOption(bool allPages) {
+			if (allPages)
+				Value = "allpages";
+			else
+				Value = "none";
 		}
 	}
 
@@ -176,6 +212,26 @@ namespace EasyOData {
 
 		public Collection Select(params string[] propertyNames) {
 			Query.Add(new SelectQueryOption(propertyNames));
+			return this;
+		}
+
+		public Collection OrderBy(params string[] propertyNamesWithAscOrDesc) {
+			Query.Add(new OrderByQueryOption(propertyNamesWithAscOrDesc));
+			return this;
+		}
+
+		public Collection Expand(params string[] propertyOrAssociatinNames) {
+			Query.Add(new ExpandQueryOption(propertyOrAssociatinNames));
+			return this;
+		}
+
+		public Collection InlineCount() {
+			Query.Add(new InlineCountQueryOption(true));
+			return this;
+		}
+
+		public Collection NoInlineCount() {
+			Query.Add(new InlineCountQueryOption(false));
 			return this;
 		}
 

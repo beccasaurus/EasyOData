@@ -11,9 +11,13 @@ namespace EasyOData.Specs {
 	public class NugetExampleSpec : Spec {
 
 		// Note, this isn't specific to NugetExampleSpec and can be moved ...
+		//
+		// TODO move this [Test] and split it into 1 [Test] per QueryOption
+		//
 		[Test]
 		public void can_get_path_that_would_be_queried() {
 			var comma = "%2c";
+			var slash = "%2f";
 
 			var collection = new Collection {
 				Service = new Service(),
@@ -44,6 +48,32 @@ namespace EasyOData.Specs {
 				ShouldEqual(string.Format("Dogs?$top=3&$select=Name{0}Category{0}Foo&$skip=4", comma));
 
 			// OrderBy
+			collection.OrderBy("*").ToPath().ShouldEqual("Dogs?$orderby=*");
+			collection.OrderBy("Name").ToPath().ShouldEqual("Dogs?$orderby=Name");
+			collection.OrderBy("Name", "Category").ToPath().ShouldEqual(string.Format("Dogs?$orderby=Name{0}Category", comma));
+			collection.OrderBy("Name", "Category,Foo").ToPath().ShouldEqual(string.Format("Dogs?$orderby=Name{0}Category{0}Foo", comma));
+			collection.Top(3).OrderBy("Name", "Category,Foo desc").Skip(4).ToPath().
+				ShouldEqual(string.Format("Dogs?$top=3&$orderby=Name{0}Category{0}Foo%20desc&$skip=4", comma));
+			collection.Select("Name").OrderBy("Name", "Category").Top(3).ToPath().
+				ShouldEqual(string.Format("Dogs?$select=Name&$orderby=Name{0}Category&$top=3", comma));
+
+			// Expand
+			collection.Expand("*").ToPath().ShouldEqual("Dogs?$expand=*");
+			collection.Expand("Name").ToPath().ShouldEqual("Dogs?$expand=Name");
+			collection.Expand("Name", "Category").ToPath().ShouldEqual(string.Format("Dogs?$expand=Name{0}Category", comma));
+			collection.Expand("Name", "Products/Suppliers").ToPath().ShouldEqual(string.Format("Dogs?$expand=Name{0}Products{1}Suppliers", comma, slash));
+			collection.Top(4).Expand("Name", "Category,Foo").Skip(2).ToPath().
+				ShouldEqual(string.Format("Dogs?$top=4&$expand=Name{0}Category{0}Foo&$skip=2", comma));
+
+			// InlineCount
+			collection.InlineCount().ToPath().ShouldEqual("Dogs?$inlinecount=allpages");
+			collection.Top(1).InlineCount().ToPath().ShouldEqual("Dogs?$top=1&$inlinecount=allpages");
+			collection.NoInlineCount().ToPath().ShouldEqual("Dogs?$inlinecount=none");
+			collection.Top(3).NoInlineCount().Skip(4).ToPath().ShouldEqual("Dogs?$top=3&$inlinecount=none&$skip=4");
+
+			// Filter <--- probably won't be using a RAW Filter, but I want to support it!
+			
+			// custom filter method
 		}
 
 		string NuGetServiceRoot = "http://packages.nuget.org/v1/FeedService.svc/";
