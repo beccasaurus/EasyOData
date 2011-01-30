@@ -10,14 +10,51 @@ namespace EasyOData.Specs {
 	[TestFixture]
 	public class NugetExampleSpec : Spec {
 
-		static string NuGetServiceRoot = "http://packages.nuget.org/v1/FeedService.svc/";
-		Service service                = new Service(NuGetServiceRoot);
+		// Note, this isn't specific to NugetExampleSpec and can be moved ...
+		[Test]
+		public void can_get_path_that_would_be_queried() {
+			var comma = "%2c";
+
+			var collection = new Collection {
+				Service = new Service(),
+				Href    = "Dogs"
+			};
+
+			// No Filters
+			collection.ToPath().ShouldEqual("Dogs");
+
+			// Top
+			collection.Top(1).ToPath().ShouldEqual("Dogs?$top=1");
+			collection.Top(5).ToPath().ShouldEqual("Dogs?$top=5");
+
+			// Skip
+			collection.Skip(1).ToPath().ShouldEqual("Dogs?$skip=1");
+			collection.Skip(5).ToPath().ShouldEqual("Dogs?$skip=5");
+
+			// Top and Skip
+			collection.Top(1).Skip(1).ToPath().ShouldEqual("Dogs?$top=1&$skip=1");
+			collection.Skip(5).Top(3).ToPath().ShouldEqual("Dogs?$skip=5&$top=3");
+
+			// Select
+			collection.Select("*").ToPath().ShouldEqual("Dogs?$select=*");
+			collection.Select("Name").ToPath().ShouldEqual("Dogs?$select=Name");
+			collection.Select("Name", "Category").ToPath().ShouldEqual(string.Format("Dogs?$select=Name{0}Category", comma));
+			collection.Select("Name", "Category,Foo").ToPath().ShouldEqual(string.Format("Dogs?$select=Name{0}Category{0}Foo", comma));
+			collection.Top(3).Select("Name", "Category,  Foo").Skip(4).ToPath().
+				ShouldEqual(string.Format("Dogs?$top=3&$select=Name{0}Category{0}Foo&$skip=4", comma));
+
+			// OrderBy
+		}
+
+		string NuGetServiceRoot = "http://packages.nuget.org/v1/FeedService.svc/";
+		Service service;
 
 		[SetUp]
 		public void Before() {
 			base.Before();
 			FakeResponse(NuGetServiceRoot, "NuGet", "root.xml");
 			FakeResponse(NuGetServiceRoot + "$metadata", "NuGet", "metadata.xml");
+			service = new Service(NuGetServiceRoot);
 		}
 
 		[Test]
@@ -97,6 +134,10 @@ namespace EasyOData.Specs {
 			// <EntityContainer>
 			// metadata.EntityContainers.Count.ShouldEqual(1);
 			// ...
+		}
+
+		[Test][Ignore]
+		public void can_get_url_that_would_be_queried() {
 		}
 	}
 }

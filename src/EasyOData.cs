@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Net;
 using System.Xml;
+using System.Web;
 using System.Text;
 using System.Linq;
 using System.Collections.Generic;
@@ -66,10 +67,123 @@ namespace EasyOData {
 
 	}
 
+	public abstract class QueryOption {
+		public virtual object Value { get; set; }
+		
+		public QueryOption() {}
+		public QueryOption(object value) {
+			Value = value;
+		}
+
+		public abstract string AddToPath(string path);
+
+		public virtual string AddQueryString(string path, string queryKey, string queryValue) {
+			path += path.Contains("?") ? "&" : "?";
+			return string.Format("{0}{1}={2}", path, queryKey, HttpUtility.UrlEncode(queryValue));
+		}
+	}
+
+	public class TopQueryOption : QueryOption {
+		public TopQueryOption()         : base()  {}
+		public TopQueryOption(object v) : base(v) {}
+
+		public new int Value {
+			get { return (int) base.Value; }
+			set { base.Value = value;      }
+		}
+
+		public override string AddToPath(string path) {
+			return AddQueryString(path, "$top", Value.ToString());
+		}
+	}
+
+	public class SkipQueryOption : QueryOption {
+		public SkipQueryOption()         : base()  {}
+		public SkipQueryOption(object v) : base(v) {}
+
+		public new int Value {
+			get { return (int) base.Value; }
+			set { base.Value = value;      }
+		}
+
+		public override string AddToPath(string path) {
+			return AddQueryString(path, "$skip", Value.ToString());
+		}
+	}
+
+	public class SelectQueryOption : QueryOption {
+		public SelectQueryOption()         : base()  {}
+		public SelectQueryOption(object v) : base(v) {}
+
+		public new string[] Value {
+			get { return base.Value as string[]; }
+			set { base.Value = value;            }
+		}
+
+		public override string AddToPath(string path) {
+			return AddQueryString(path, "$select", string.Join(",", Value).Replace(" ",""));
+		}
+	}
+
+	public class Query : List<QueryOption> {
+		public Collection Collection { get; set; }
+
+		public Query() {}
+		public Query(Collection collection) {
+			Collection = collection;
+		}
+
+		public string Path {
+			get {
+				//Console.WriteLine("Getting path for {0} which has {1} options", Collection.Href, this.Count);
+
+				// start with the collection's Href
+				var path = Collection.Href;
+
+				// then let each QueryOption modify the path as necessary
+				foreach (QueryOption option in this)
+					path = option.AddToPath(path);
+
+				// return the finished path
+				return path;
+			}
+		}
+	}
+
 	public class Collection {
 		public Service Service { get; set; }
 		public string Name     { get; set; }
 		public string Href     { get; set; }
+
+		Query _query;
+		Query Query {
+			get {
+				if (_query == null)
+					_query = new Query(this);
+				return _query;
+			}
+		}
+
+		public Collection Top(int number) {
+			Query.Add(new TopQueryOption(number));
+			return this;
+		}
+
+		public Collection Skip(int number) {
+			Query.Add(new SkipQueryOption(number));
+			return this;
+		}
+
+		public Collection Select(params string[] propertyNames) {
+			Query.Add(new SelectQueryOption(propertyNames));
+			return this;
+		}
+
+		public string ToPath() {
+			var path = Query.Path;
+			_query.Clear();
+			return path;
+		}
 	}
 
 	public class Property {

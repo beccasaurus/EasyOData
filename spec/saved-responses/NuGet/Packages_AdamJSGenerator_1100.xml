@@ -1,0 +1,58 @@
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Content-Length: 3514
+Content-Type: application/atom+xml;charset=utf-8
+Server: Microsoft-IIS/7.0
+DataServiceVersion: 1.0;
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Sun, 30 Jan 2011 09:30:20 GMT
+
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<entry xml:base="http://packages.nuget.org/v1/FeedService.svc/" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+  <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='Adam.JSGenerator',Version='1.1.0.0')</id>
+  <title type="text"></title>
+  <updated>2011-01-30T09:30:20Z</updated>
+  <author>
+    <name />
+  </author>
+  <link rel="edit-media" title="PublishedPackage" href="Packages(Id='Adam.JSGenerator',Version='1.1.0.0')/$value" />
+  <link rel="edit" title="PublishedPackage" href="Packages(Id='Adam.JSGenerator',Version='1.1.0.0')" />
+  <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='Adam.JSGenerator',Version='1.1.0.0')/Screenshots" />
+  <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+  <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/Adam.JSGenerator/1.1.0.0" />
+  <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+    <d:Id>Adam.JSGenerator</d:Id>
+    <d:Version>1.1.0.0</d:Version>
+    <d:Title>Adam.JSGenerator</d:Title>
+    <d:Authors>Dave Van den Eynde, Wouter Demuynck</d:Authors>
+    <d:PackageType>Packages</d:PackageType>
+    <d:Summary>Adam.JSGenerator helps producing snippets of JavaScript code from managed code.</d:Summary>
+    <d:Description>Adam.JSGenerator helps produce snippets of JavaScript code from managed code.</d:Description>
+    <d:Copyright m:null="true"></d:Copyright>
+    <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+    <d:PackageHash>/2ow1BS6W2npy9nlNDM+Qxt0wvNmhJw6MzEE2pwFvmVgxWqTfCSbkU9RulDtH3BJL/6BbBDiBm8HcfO0Lhajgw==</d:PackageHash>
+    <d:PackageSize m:type="Edm.Int64">144008</d:PackageSize>
+    <d:Price m:type="Edm.Decimal">0</d:Price>
+    <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+    <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+    <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+    <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+    <d:VersionDownloadCount m:type="Edm.Int32">107</d:VersionDownloadCount>
+    <d:Created m:type="Edm.DateTime">2011-01-07T07:49:35.947</d:Created>
+    <d:LastUpdated m:type="Edm.DateTime">2011-01-07T21:28:23.467</d:LastUpdated>
+    <d:Published m:type="Edm.DateTime">2011-01-07T21:28:26.557</d:Published>
+    <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+    <d:ProjectUrl m:null="true"></d:ProjectUrl>
+    <d:LicenseUrl m:null="true"></d:LicenseUrl>
+    <d:IconUrl m:null="true"></d:IconUrl>
+    <d:Rating m:type="Edm.Double">0</d:Rating>
+    <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+    <d:DownloadCount m:type="Edm.Int32">107</d:DownloadCount>
+    <d:Categories m:null="true"></d:Categories>
+    <d:Tags m:null="true"></d:Tags>
+    <d:Dependencies></d:Dependencies>
+    <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/Adam.JSGenerator/1.1.0.0</d:ReportAbuseUrl>
+    <d:GalleryDetailsUrl>http://localhost:777/Packages/Packages/Details/Adam-JSGenerator-1-1-0-0</d:GalleryDetailsUrl>
+  </m:properties>
+</entry>
