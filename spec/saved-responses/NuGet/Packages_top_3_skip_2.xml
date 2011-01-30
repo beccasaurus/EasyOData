@@ -1,0 +1,158 @@
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Content-Length: 10355
+Content-Type: application/atom+xml;charset=utf-8
+Server: Microsoft-IIS/7.0
+DataServiceVersion: 1.0;
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Sun, 30 Jan 2011 21:34:31 GMT
+
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<feed xml:base="http://packages.nuget.org/v1/FeedService.svc/" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">Packages</title>
+  <id>http://packages.nuget.org/v1/FeedService.svc/Packages</id>
+  <updated>2011-01-30T21:34:31Z</updated>
+  <link rel="self" title="Packages" href="Packages" />
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='AE.Net.Mail',Version='1.0.1')</id>
+    <title type="text"></title>
+    <updated>2011-01-30T21:34:31Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='AE.Net.Mail',Version='1.0.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='AE.Net.Mail',Version='1.0.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='AE.Net.Mail',Version='1.0.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/AE.Net.Mail/1.0.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>AE.Net.Mail</d:Id>
+      <d:Version>1.0.1</d:Version>
+      <d:Title>AE.Net.Mail</d:Title>
+      <d:Authors>Andy Edinborough,  Mentalis.org,  Cyrille Colin</d:Authors>
+      <d:PackageType>Packages</d:PackageType>
+      <d:Summary>POP/IMap Client Library</d:Summary>
+      <d:Description>POP/IMap Client Library including SSL support</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>PGNgHg1vbu+BWgP01d0ZQxAOHXeM7UCn2tqlepAFEjj6+350iE0Yw2+M3+l3jI21JV1iT3myO1YslQd4hilE2A==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">252788</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">81</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-01-14T16:07:20.327</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-01-20T00:56:48.14</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-01-20T00:57:21.203</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://aenetmail.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://aenetmail.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl>/Media/Default/Packages/AE.Net.Mail/1.0.1/Logo.png</d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">89</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags xml:space="preserve"> pop imap </d:Tags>
+      <d:Dependencies></d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/AE.Net.Mail/1.0.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://localhost:777/Packages/Packages/Details/AE-Net-Mail-1-0-1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='Agatha-rrsl',Version='1.2.0')</id>
+    <title type="text"></title>
+    <updated>2011-01-30T21:34:31Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='Agatha-rrsl',Version='1.2.0')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='Agatha-rrsl',Version='1.2.0')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='Agatha-rrsl',Version='1.2.0')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/Agatha-rrsl/1.2.0" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>Agatha-rrsl</d:Id>
+      <d:Version>1.2.0</d:Version>
+      <d:Title>Agatha-rrsl</d:Title>
+      <d:Authors>David Bryon</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>Request/Response Service Layer for .NET</d:Summary>
+      <d:Description>Request/Response Service Layer for .NET</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>K8s//Tknao2rCE7b//Hnd4X7FKiELvmgx/iqupM45G+5AYpcj95MjwvYYc2ebl9ISZri4y03umyGWRRYBXa7lg==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">97851</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">81</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-01-07T07:49:37.73</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-01-07T07:49:37.73</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-01-07T07:49:38.247</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl m:null="true"></d:ProjectUrl>
+      <d:LicenseUrl>http://www.apache.org/licenses/LICENSE-2.0</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">81</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies></d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/Agatha-rrsl/1.2.0</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://localhost:777/Packages//Details/Agatha-rrsl-1-2-0</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='Altairis.MailToolkit',Version='1.0.0')</id>
+    <title type="text"></title>
+    <updated>2011-01-30T21:34:31Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='Altairis.MailToolkit',Version='1.0.0')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='Altairis.MailToolkit',Version='1.0.0')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='Altairis.MailToolkit',Version='1.0.0')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/Altairis.MailToolkit/1.0.0" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>Altairis.MailToolkit</d:Id>
+      <d:Version>1.0.0</d:Version>
+      <d:Title>Altairis Mail Toolkit</d:Title>
+      <d:Authors>Michal Altair Valášek</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>Library for sending templated and localized e-mail messages from web application.</d:Summary>
+      <d:Description>Library for sending templated and localized e-mail messages from web application.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>oPw1WSnNzCUHRejMnOW9pBf/sDiitvzS7NEJJFq+uGiOFh30eAemxg5EfnqA7mJiO16qTD4RBl/dqmogbXxacw==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">18337</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">72</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-01-07T07:49:39.073</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-01-07T07:49:39.073</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-01-07T07:49:39.573</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://altairismailtoolkit.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://altairismailtoolkit.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">72</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies></d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/Altairis.MailToolkit/1.0.0</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://localhost:777/Packages//Details/Altairis-Mail-Toolkit-1-0-0</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+</feed>

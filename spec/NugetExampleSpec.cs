@@ -17,6 +17,73 @@ namespace EasyOData.Specs {
 	[TestFixture]
 	public class NugetExampleSpec : Spec {
 
+		string NuGetServiceRoot = "http://packages.nuget.org/v1/FeedService.svc/";
+		Service service;
+
+		[SetUp]
+		public void Before() {
+			base.Before();
+			FakeResponse(NuGetServiceRoot,                     "NuGet", "root.xml");
+			FakeResponse(NuGetServiceRoot + "$metadata",       "NuGet", "metadata.xml");
+			FakeResponse(NuGetServiceRoot + "Packages?$top=1", "NuGet", "Packages_top_1.xml");
+			service = new Service(NuGetServiceRoot);
+		}
+
+		[Test]
+		public void can_get_top_1_package() {
+			// Check the Path and Url
+			service.Collections["Packages"].Top(1).ToPath().ShouldEqual("Packages?$top=1");
+			service.Collections["Packages"].Top(1).ToUrl().ShouldEqual("http://packages.nuget.org/v1/FeedService.svc/Packages?$top=1");
+
+			// i don't like that the Collection instance is what we get ...
+			var packages = service.Collections["Packages"].Top(1);
+			(packages is Query).ShouldBeTrue();
+
+			// Count
+			//packages.Count.ShouldEqual(1);
+			//packages.Clear();
+
+			// foreach
+			// foreach (var
+
+			// LINQ
+
+			//var first = packages.First();
+			//first.EntityType.Name.ShouldEqual("PublishedPackage");
+
+			//first.Properties["Id"].Value.ShouldEqual("51Degrees.mobi");
+			//first.Properties["Id"].Type.ToString().ShouldEqual("Edm.String");
+			//first.Properties["Id"].IsNullable.ShouldBeFalse();
+
+			//first.Properties["Version"].Value.ShouldEqual("0.1.11.10");
+			//first.Properties["Title"].Value.ShouldEqual("51Degrees.mobi");
+
+			//first.Properties["Authors"].Value.ShouldEqual("James Rosewell,  Thomas Holmes");
+			//first.Properties["Authors"].IsNullable.ShouldBeTrue();
+
+			//first.Properties["PackageSize"].Type.ToString().ShouldEqual("Edm.Int64");
+			//first.Properties["PackageSize"].IsNullable.ShouldBeFalse();
+
+			//first.Properties["IsLatestVersion"].Type.ToString().ShouldEqual("Edm.Boolean");
+			//first.Properties["IsLatestVersion"].IsNullable.ShouldBeFalse();
+		}
+
+		[Test][Ignore]
+		public void can_get_top_3_packages() {
+		}
+
+		[Test][Ignore]
+		public void can_get_top_3_packages_skipping_2() {
+		}
+
+		[Test][Ignore]
+		public void can_get_package_by_key() {
+		}
+
+		[Test][Ignore]
+		public void can_get_top_packages_with_name_starting_with_something() {
+		}
+
 		// Note, this isn't specific to NugetExampleSpec and can be moved ...
 		//
 		// TODO move this [Test] and split it into 1 [Test] per QueryOption
@@ -146,17 +213,6 @@ namespace EasyOData.Specs {
 			collection.Where("Name"._Contains("Bob")).ToPath().ShouldEqual("Dogs?$filter=substringof('Bob', Name) eq true".Encode());
 		}
 
-		string NuGetServiceRoot = "http://packages.nuget.org/v1/FeedService.svc/";
-		Service service;
-
-		[SetUp]
-		public void Before() {
-			base.Before();
-			FakeResponse(NuGetServiceRoot, "NuGet", "root.xml");
-			FakeResponse(NuGetServiceRoot + "$metadata", "NuGet", "metadata.xml");
-			service = new Service(NuGetServiceRoot);
-		}
-
 		[Test]
 		public void can_get_collection_names() {
 			service.CollectionNames.Count.ShouldEqual(2);
@@ -189,6 +245,12 @@ namespace EasyOData.Specs {
 			metadata.EntityTypeNames.ShouldContain("PublishedScreenshot");
 
 			var package = metadata.EntityTypes["PublishedPackage"];
+
+			// can use full namespace
+			metadata.EntityTypes["Gallery.Infrastructure.FeedModels.PublishedPackage"].ShouldEqual(package);
+
+			package.Name.ShouldEqual("PublishedPackage");
+			package.FullName.ShouldEqual("Gallery.Infrastructure.FeedModels.PublishedPackage");
 
 			// // <Property>
 			package.Properties.Count.ShouldEqual(32);

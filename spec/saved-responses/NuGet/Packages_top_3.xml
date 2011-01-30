@@ -1,0 +1,158 @@
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Content-Length: 10770
+Content-Type: application/atom+xml;charset=utf-8
+Server: Microsoft-IIS/7.0
+DataServiceVersion: 1.0;
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Sun, 30 Jan 2011 21:34:13 GMT
+
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<feed xml:base="http://packages.nuget.org/v1/FeedService.svc/" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">Packages</title>
+  <id>http://packages.nuget.org/v1/FeedService.svc/Packages</id>
+  <updated>2011-01-30T21:34:14Z</updated>
+  <link rel="self" title="Packages" href="Packages" />
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='51Degrees.mobi',Version='0.1.11.10')</id>
+    <title type="text"></title>
+    <updated>2011-01-30T21:34:14Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='51Degrees.mobi',Version='0.1.11.10')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='51Degrees.mobi',Version='0.1.11.10')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='51Degrees.mobi',Version='0.1.11.10')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/51Degrees.mobi/0.1.11.10" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>51Degrees.mobi</d:Id>
+      <d:Version>0.1.11.10</d:Version>
+      <d:Title>51Degrees.mobi</d:Title>
+      <d:Authors>James Rosewell,  Thomas Holmes</d:Authors>
+      <d:PackageType>Packages</d:PackageType>
+      <d:Summary>Detect mobile devices, get really accurate handset properties and redirect to web pages designed for mobile devices. Request.Browser properties will be populated with data from the WURFL open source project.</d:Summary>
+      <d:Description>Detect mobile devices, get really accurate handset properties and redirect to web pages designed for mobile devices. Request.Browser properties will be populated with data from the WURFL open source project.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>9oWctVmKzipbK8kzNMQ42ib6S7Q0PA+MrxwIQN1SdI99YvQ3UI/4UgjLZJbMwWr39eotSS7WvnLsM+xhLtQZMQ==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">1084525</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">false</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">255</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-01-09T21:09:18.367</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-01-09T21:09:29.463</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-01-09T21:09:32.383</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://51degrees.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://51degrees.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl>http://51degrees.mobi/portals/0/NuGetLogo.png</d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">274</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies>WebActivator:1.0.0.0</d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/51Degrees.mobi/0.1.11.10</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://localhost:777/Packages/Packages/Details/51Degrees-mobi-0-1-11-10</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='Adam.JSGenerator',Version='1.1.0.0')</id>
+    <title type="text"></title>
+    <updated>2011-01-30T21:34:14Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='Adam.JSGenerator',Version='1.1.0.0')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='Adam.JSGenerator',Version='1.1.0.0')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='Adam.JSGenerator',Version='1.1.0.0')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/Adam.JSGenerator/1.1.0.0" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>Adam.JSGenerator</d:Id>
+      <d:Version>1.1.0.0</d:Version>
+      <d:Title>Adam.JSGenerator</d:Title>
+      <d:Authors>Dave Van den Eynde, Wouter Demuynck</d:Authors>
+      <d:PackageType>Packages</d:PackageType>
+      <d:Summary>Adam.JSGenerator helps producing snippets of JavaScript code from managed code.</d:Summary>
+      <d:Description>Adam.JSGenerator helps produce snippets of JavaScript code from managed code.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>/2ow1BS6W2npy9nlNDM+Qxt0wvNmhJw6MzEE2pwFvmVgxWqTfCSbkU9RulDtH3BJL/6BbBDiBm8HcfO0Lhajgw==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">144008</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">107</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-01-07T07:49:35.947</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-01-07T21:28:23.467</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-01-07T21:28:26.557</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl m:null="true"></d:ProjectUrl>
+      <d:LicenseUrl m:null="true"></d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">107</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies></d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/Adam.JSGenerator/1.1.0.0</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://localhost:777/Packages/Packages/Details/Adam-JSGenerator-1-1-0-0</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='AE.Net.Mail',Version='1.0.1')</id>
+    <title type="text"></title>
+    <updated>2011-01-30T21:34:14Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='AE.Net.Mail',Version='1.0.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='AE.Net.Mail',Version='1.0.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='AE.Net.Mail',Version='1.0.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/AE.Net.Mail/1.0.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>AE.Net.Mail</d:Id>
+      <d:Version>1.0.1</d:Version>
+      <d:Title>AE.Net.Mail</d:Title>
+      <d:Authors>Andy Edinborough,  Mentalis.org,  Cyrille Colin</d:Authors>
+      <d:PackageType>Packages</d:PackageType>
+      <d:Summary>POP/IMap Client Library</d:Summary>
+      <d:Description>POP/IMap Client Library including SSL support</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>PGNgHg1vbu+BWgP01d0ZQxAOHXeM7UCn2tqlepAFEjj6+350iE0Yw2+M3+l3jI21JV1iT3myO1YslQd4hilE2A==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">252788</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">81</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-01-14T16:07:20.327</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-01-20T00:56:48.14</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-01-20T00:57:21.203</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://aenetmail.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://aenetmail.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl>/Media/Default/Packages/AE.Net.Mail/1.0.1/Logo.png</d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">89</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags xml:space="preserve"> pop imap </d:Tags>
+      <d:Dependencies></d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/AE.Net.Mail/1.0.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://localhost:777/Packages/Packages/Details/AE-Net-Mail-1-0-1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+</feed>

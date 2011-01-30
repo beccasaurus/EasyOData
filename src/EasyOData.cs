@@ -1,5 +1,3 @@
-// TODO split this file up, once we have stuff working pretty well ...
-
 using System;
 using System.IO;
 using System.Net;
@@ -133,7 +131,7 @@ namespace EasyOData {
 
 	public static class XmlParsing {
 
-		public static IEnumerable<XmlNode> GetElementsByTagName(this XmlNode node, string tagName) {
+		public static List<XmlNode> GetElementsByTagName(this XmlNode node, string tagName) {
 			var nodes = new List<XmlNode>();
 			foreach (XmlNode child in node.ChildNodes)
 				if (child.Name == tagName)
@@ -156,8 +154,38 @@ namespace EasyOData {
 			};
 		}
 
+		public static List<Entity> ToEntities(this XmlDocument doc, Collection collection) {
+			var entities = new List<Entity>();
+			foreach (XmlNode node in doc.GetElementsByTagName("entry"))
+				entities.Add(node.ToEntity(collection));
+			return entities;
+		}
+
+		public static Entity ToEntity(this XmlNode node, Collection collection) {
+			var entity   = new Entity();
+			var metadata = collection.Service.Metadata;
+
+			// EntityType.  figure out what type of entity this is using the <category term="Full.Namespace.To.Class" />
+			var fullName      = node.GetElementsByTagName("category")[0].Attr("term");
+			entity.EntityType = metadata.EntityTypes[fullName];
+			if (entity.EntityType == null)
+				throw new Exception(string.Format("Couldn't find EntityType by name: {0}", fullName));
+
+			// Properties.  clone them from the EntityType, then fill in the values from the XML
+			entity.Properties = new PropertyList(entity.EntityType.Properties);
+			foreach (XmlNode propertyNode in node.GetElementsByTagName("m:properties")[0].ChildNodes) {
+				var propertyName  = propertyNode.Name.Replace("d:", "");
+				var propertyValue = propertyNode.InnerText;
+				if (entity.Properties[propertyName] == null)
+					throw new Exception(string.Format("EntityType {0} doesn't have property {1}", entity.EntityType.Name, propertyName));
+				entity.Properties[propertyName].Value = propertyValue;
+			}
+
+			return entity;
+		}
+
 		public static EntityType ToEntityType(this XmlNode node, Metadata metadata) {
-			var type = new EntityType();
+			var type = new EntityType { Namespace = metadata.Namespace };
 
 			// Name
 			type.Name = node.Attr("Name");
@@ -369,10 +397,40 @@ namespace EasyOData {
 		}
 	}
 
-	public class Collection {
+	public class CollectionList : List<Collection> {
+		public Collection this[string name] {
+			get { return this.FirstOrDefault(collection => collection.Name == name); }
+		}
+	}
+
+	public class Collection : List<Entity> {
 		public Service Service { get; set; }
 		public string Name     { get; set; }
 		public string Href     { get; set; }
+
+		// Kicker methods all call this
+		public void ExecuteQuery() {
+			if (Query != null) {
+				Console.WriteLine("Executing Query");
+				this.AddRange(Service.GetXml(ToPath()).ToEntities(this));
+				Console.WriteLine("DONE");
+			}
+		}
+
+		#region Kicker Methods
+		public new int Count {
+			get {
+				ExecuteQuery();
+				return base.Count;
+			}
+		}
+
+		// Can't seem to get this to work so, for now, you need to call Run() for Linq
+		//public new List<Entity>.Enumerator GetEnumerator() {
+		//	ExecuteQuery();
+		//	return base.GetEnumerator();
+		//}
+		#endregion
 
 		Query _query;
 		Query Query {
@@ -450,8 +508,12 @@ namespace EasyOData {
 
 		public string ToPath() {
 			var path = Query.Path;
-			_query.Clear();
+			_query = null;
 			return path;
+		}
+
+		public string ToUrl() {
+			return Service.GetUrl(ToPath());
 		}
 	}
 
@@ -460,6 +522,7 @@ namespace EasyOData {
 		public string TypeName { get; set; } // TODO this should eventually just get { EdmType.Name }
 		public bool IsNullable { get; set; }
 		public bool IsKey { get; set; }
+		public object Value { get; set; }
 
 		public string Type { get { return TypeName; } } // this should be the entity type, eventually
 	}
@@ -475,13 +538,27 @@ namespace EasyOData {
 		}
 	}
 
+	public class Entity {
+		public Entity() {
+			Properties = new PropertyList();
+		}
+
+		public EntityType EntityType { get; set; }
+		public PropertyList Properties { get; set; }
+	}
+
 	public class EntityType {
 		public EntityType() {
 			Properties = new PropertyList();
 		}
 
-		public string Name { get; set; }
+		public string Name             { get; set; }
+		public string Namespace        { get; set; }
 		public PropertyList Properties { get; set; }
+
+		public string FullName {
+			get { return Namespace + "." + Name; }
+		}
 
 		public List<string> PropertyNames { get { return Properties.Select(property => property.Name).ToList(); } }
 
@@ -490,7 +567,18 @@ namespace EasyOData {
 
 	public class EntityTypeList : List<EntityType> {
 		public EntityType this[string name] {
-			get { return this.FirstOrDefault(type => type.Name == name); }
+			get {
+				if (name.Contains("."))
+					return ByFullName(name);
+				else
+					return ByClassName(name);
+			}
+		}
+		public EntityType ByClassName(string className) {
+			return this.FirstOrDefault(type => type.Name == className);
+		}
+		public EntityType ByFullName(string fullName) {
+			return this.FirstOrDefault(type => type.FullName == fullName);
 		}
 	}
 
@@ -505,18 +593,39 @@ namespace EasyOData {
 
 		public List<string> EntityTypeNames { get { return EntityTypes.Select(t => t.Name).ToList(); } }
 
-		public EntityTypeList EntityTypes {
-			get {
-				var types = new EntityTypeList();
-				foreach (XmlNode node in Service.GetXml("$metadata").GetElementsByTagName("EntityType"))
-					types.Add(node.ToEntityType(this));
-				return types;
-			}
+		// Kicker method for getting and parsing Metadata
+		public void GetAndParseMetadata() {
+			var doc = Service.GetXml("$metadata");
+
+			// get namespace
+			Namespace = doc.GetElementsByTagName("Schema")[0].Attr("Namespace");
+
+			// get entity types
+			var types = new EntityTypeList();
+			foreach (XmlNode node in doc.GetElementsByTagName("EntityType"))
+				types.Add(node.ToEntityType(this));
+			EntityTypes = types;
 		}
 
-		// public List<Property> Properties {
-		// 	
-		// }
+		string _namespace;
+		public string Namespace {
+			get {
+				if (_namespace == null)
+					GetAndParseMetadata();
+				return _namespace;
+			}
+			set { _namespace = value; }
+		}
+
+		EntityTypeList _entityTypes;
+		public EntityTypeList EntityTypes {
+			get {
+				if (_entityTypes == null)
+					GetAndParseMetadata();
+				return _entityTypes;
+			}
+			set { _entityTypes = value; }
+		}
 	}
 
 	/// <summary>Represents an OData Service</summary>
@@ -529,9 +638,9 @@ namespace EasyOData {
 			Root = root;
 		}
 
-		public List<Collection> Collections {
+		public CollectionList Collections {
 			get {
-				var collections = new List<Collection>();
+				var collections = new CollectionList();
 				foreach (XmlNode node in GetXml("/").GetElementsByTagName("collection"))
 					collections.Add(node.ToCollection(this));
 				return collections;
@@ -546,6 +655,10 @@ namespace EasyOData {
 			get { return Collections.Select(c => c.Name).ToList(); }
 		}
 
+		public string GetUrl(string relativePath) {
+			return CombineUrl(Root, relativePath);
+		}
+
 		#region HTTP Requesting
 		Requestor _requestor = new Requestor();
 
@@ -554,7 +667,7 @@ namespace EasyOData {
 		}
 
 		IResponse Get(string path) {
-			return _requestor.Get(CombineUrl(Root, path));
+			return _requestor.Get(GetUrl(path));
 		}
 
 		public XmlDocument GetXml(string path) {
