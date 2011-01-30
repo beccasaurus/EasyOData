@@ -12,6 +12,60 @@ using Requestoring;
 
 namespace EasyOData {
 
+	namespace Filters {
+
+		namespace Extensions {
+			public static class FilterExtensions {
+				public static Filters.Filter _Equals(this string propertyName, object value) {
+					return new Filters.EqualsFilter(propertyName, value);
+				}
+			}
+		}
+
+		public class FilterList : List<Filter> {
+		}
+
+		public class Filter {
+			public Filter() {}
+			public Filter(string propertyName, object value) {
+				PropertyName = propertyName;
+				Value        = value;
+			}
+
+			public virtual string PropertyName { get; set; }
+			public virtual object Value        { get; set; }
+
+			public virtual string ValueString {
+				get {
+					if (Value is string)
+						return "'" + Value + "'";
+					else
+						return Value.ToString();
+				}
+			}
+		}
+
+		public class SimpleOperatorFilter : Filter {
+			public SimpleOperatorFilter(string propertyName, object value) : base(propertyName, value) {}
+
+			public virtual string Operator { get { throw new Exception("You must override Operator in your SimpleOperatorFilter"); } }
+
+			public override string ToString() {
+				return string.Format("{0} {1} {2}", PropertyName, Operator, ValueString);
+			}
+		}
+
+		public class EqualsFilter : SimpleOperatorFilter {
+			public EqualsFilter(string propertyName, object value) : base(propertyName, value) {}
+			public override string Operator { get { return "eq"; } }
+		}
+
+		public class NotEqualsFilter : SimpleOperatorFilter {
+			public NotEqualsFilter(string propertyName, object value) : base(propertyName, value) {}
+			public override string Operator { get { return "ne"; } }
+		}
+	}
+
 	public static class XmlParsing {
 
 		public static IEnumerable<XmlNode> GetElementsByTagName(this XmlNode node, string tagName) {
@@ -86,7 +140,7 @@ namespace EasyOData {
 
 		public virtual string AddQueryString(string path, string queryKey, string queryValue) {
 			path += path.Contains("?") ? "&" : "?";
-			return string.Format("{0}{1}={2}", path, queryKey, HttpUtility.UrlEncode(queryValue));
+			return string.Format("{0}{1}={2}", path, queryKey, HttpUtility.UrlEncode(queryValue).Replace("+", "%20"));
 		}
 
 		public virtual string AddToPath(string path) {
@@ -147,8 +201,7 @@ namespace EasyOData {
 		}
 
 		public override string AddToPath(string path) {
-			// can have spaces, eg. "Name asc" (should encode to %20 - HttpUtility encodes to +, which we fix)
-			return AddQueryString(path, Key, string.Join(",", Value)).Replace("+", "%20");
+			return AddQueryString(path, Key, string.Join(",", Value));
 		}
 	}
 
@@ -161,12 +214,64 @@ namespace EasyOData {
 		}
 	}
 
+	// can specify a raw filter string 
+	// or track abunchof Filters.Filter objects and 
+	// use then to generate the path
+	public class FilterQueryOption : QueryOption {
+		public FilterQueryOption() : base() {
+			Filters = new Filters.FilterList();
+		}
+
+		public new string Value {
+			get { return base.Value as string; }
+			set { base.Value = value;          }
+		}
+
+		public override string AddToPath(string path) {
+			// raw Filter string specified
+			if (Value != null)
+				return AddQueryString(path, Key, Value);
+			else
+				return AddQueryString(path, Key, ValueForFilters);
+		}
+
+		public string ValueForFilters {
+			// right now, we only support and ... we need to spec and/or queries to fix this!
+			get { return string.Join(" and ", Filters.Select(f => f.ToString()).ToArray()); }
+		}
+
+		public FilterQueryOption(string rawFilterString) : this() {
+			Value = rawFilterString;
+		}
+
+		public void Add(Filters.Filter filter) {
+			Filters.Add(filter);
+		}
+
+		public Filters.FilterList Filters { get; set; }
+	}
+
 	public class Query : List<QueryOption> {
 		public Collection Collection { get; set; }
 
 		public Query() {}
 		public Query(Collection collection) {
 			Collection = collection;
+		}
+
+		public FilterQueryOption FilterQueryOption {
+			get {
+				var option = this.FirstOrDefault(o => o is FilterQueryOption) as FilterQueryOption;
+				if (option == null) {
+					option = new FilterQueryOption();
+					this.Add(option);
+				}
+				return option;
+			}
+		}
+
+		public void Add(Filters.Filter filter) {
+			FilterQueryOption.Add(filter);
 		}
 
 		public string Path {
@@ -232,6 +337,16 @@ namespace EasyOData {
 
 		public Collection NoInlineCount() {
 			Query.Add(new InlineCountQueryOption(false));
+			return this;
+		}
+
+		public Collection Filter(string rawFilterString) {
+			Query.Add(new FilterQueryOption(rawFilterString));
+			return this;
+		}
+
+		public Collection Where(Filters.Filter filter) {
+			Query.Add(filter);
 			return this;
 		}
 

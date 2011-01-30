@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Requestoring;
 using EasyOData;
+using EasyOData.Filters.Extensions; // gives us the _Equals() style extension methods
 using NUnit.Framework;
 
 namespace EasyOData.Specs {
@@ -71,9 +72,44 @@ namespace EasyOData.Specs {
 			collection.NoInlineCount().ToPath().ShouldEqual("Dogs?$inlinecount=none");
 			collection.Top(3).NoInlineCount().Skip(4).ToPath().ShouldEqual("Dogs?$top=3&$inlinecount=none&$skip=4");
 
+			// Format
+			// 
+			// Not adding support for $format because the typicaly OData WCF services don't actually seem 
+			// to support this value, plus EasyOData will be working with atom+xml data as JSON isn't very 
+			// well supported by WCF providers.
+			//
+
 			// Filter <--- probably won't be using a RAW Filter, but I want to support it!
+			collection.Filter("Price gt 20").ToPath().ShouldEqual("Dogs?$filter=Price%20gt%2020");
+			collection.Top(4).Filter("Price le 200 and Price gt 3.5").Skip(2).ToPath().
+				ShouldEqual("Dogs?$top=4&$filter=Price%20le%20200%20and%20Price%20gt%203.5&$skip=2");
 			
-			// custom filter method
+			// custom filter methods ...
+
+			// low-level ... part of the public API incase people want to dynamically make queries or make their own extension 
+			// methods or for when we want to make a LINQ provider or something sexy like that ...
+			collection.Where(new Filters.EqualsFilter("Name", "Bob")).ToPath().ShouldEqual("Dogs?$filter=Name%20eq%20'Bob'");
+			collection.Where(new Filters.EqualsFilter("Id", 15)).ToPath().ShouldEqual("Dogs?$filter=Id%20eq%2015");
+
+			collection.Where(new Filters.NotEqualsFilter("Name", "Bob")).ToPath().ShouldEqual("Dogs?$filter=Name%20ne%20'Bob'");
+			collection.Where(new Filters.NotEqualsFilter("Id", 15)).ToPath().ShouldEqual("Dogs?$filter=Id%20ne%2015");
+
+			// Equals
+			//collection.Where(new { Name = "Bob" }).ToPath().ShouldEqual("Dogs?$filter=Name%20eq'Bob'");
+			
+			collection.Where("Name"._Equals("Bob")).ToPath().ShouldEqual("Dogs?$filter=Name%20eq%20'Bob'");
+			collection.Top(1).Where("Name"._Equals("Bob")).Skip(30).ToPath().ShouldEqual("Dogs?$top=1&$filter=Name%20eq%20'Bob'&$skip=30");
+			
+			//collection.Where("Name"._NotEqual("Bob")).ToPath().ShouldEqual("Dogs?$filter=Name%20eq'Bob'");
+			//collection.Top(1).Where("Name"._NotEqual("Bob")).Skip(30).ToPath("Dogs?$top=1&$filter=Name%20eq'Bob'&$skip=30");
+
+			// StartsWith
+			//collection.Where("Name"._StartsWith("Bob")).ToPath().ShouldEqual();
+
+			// EndsWith
+
+			// Contains
+
 		}
 
 		string NuGetServiceRoot = "http://packages.nuget.org/v1/FeedService.svc/";
