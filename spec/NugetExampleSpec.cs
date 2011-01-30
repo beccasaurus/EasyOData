@@ -8,6 +8,12 @@ using NUnit.Framework;
 
 namespace EasyOData.Specs {
 
+	public static class SpecExtensions {
+		public static string FixSpaces(this string hasSpaces) {
+			return hasSpaces.Replace(" ", "%20");
+		}
+	}
+
 	[TestFixture]
 	public class NugetExampleSpec : Spec {
 
@@ -80,28 +86,54 @@ namespace EasyOData.Specs {
 			//
 
 			// Filter <--- probably won't be using a RAW Filter, but I want to support it!
-			collection.Filter("Price gt 20").ToPath().ShouldEqual("Dogs?$filter=Price%20gt%2020");
+			collection.Filter("Price gt 20").ToPath().ShouldEqual("Dogs?$filter=Price gt 20".FixSpaces());
 			collection.Top(4).Filter("Price le 200 and Price gt 3.5").Skip(2).ToPath().
-				ShouldEqual("Dogs?$top=4&$filter=Price%20le%20200%20and%20Price%20gt%203.5&$skip=2");
+				ShouldEqual("Dogs?$top=4&$filter=Price le 200 and Price gt 3.5&$skip=2".FixSpaces());
 			
 			// custom filter methods ...
 
 			// low-level ... part of the public API incase people want to dynamically make queries or make their own extension 
 			// methods or for when we want to make a LINQ provider or something sexy like that ...
-			collection.Where(new Filters.EqualsFilter("Name", "Bob")).ToPath().ShouldEqual("Dogs?$filter=Name%20eq%20'Bob'");
-			collection.Where(new Filters.EqualsFilter("Id", 15)).ToPath().ShouldEqual("Dogs?$filter=Id%20eq%2015");
+			collection.Where(new Filters.EqualsFilter("Name", "Bob")).ToPath().ShouldEqual("Dogs?$filter=Name eq 'Bob'".FixSpaces());
+			collection.Where(new Filters.EqualsFilter("Id", 15)).ToPath().ShouldEqual("Dogs?$filter=Id eq 15".FixSpaces());
 
-			collection.Where(new Filters.NotEqualsFilter("Name", "Bob")).ToPath().ShouldEqual("Dogs?$filter=Name%20ne%20'Bob'");
-			collection.Where(new Filters.NotEqualsFilter("Id", 15)).ToPath().ShouldEqual("Dogs?$filter=Id%20ne%2015");
+			collection.Where(new Filters.NotEqualsFilter("Name", "Bob")).ToPath().ShouldEqual("Dogs?$filter=Name ne 'Bob'".FixSpaces());
+			collection.Where(new Filters.NotEqualsFilter("Id", 15)).ToPath().ShouldEqual("Dogs?$filter=Id ne 15".FixSpaces());
 
-			// Equals
+			// Equals (using anonymous object)
 			//collection.Where(new { Name = "Bob" }).ToPath().ShouldEqual("Dogs?$filter=Name%20eq'Bob'");
 			
-			collection.Where("Name"._Equals("Bob")).ToPath().ShouldEqual("Dogs?$filter=Name%20eq%20'Bob'");
-			collection.Top(1).Where("Name"._Equals("Bob")).Skip(30).ToPath().ShouldEqual("Dogs?$top=1&$filter=Name%20eq%20'Bob'&$skip=30");
+			// Equals
+			collection.Where("Name"._Equals("Bob")).ToPath().ShouldEqual("Dogs?$filter=Name eq 'Bob'".FixSpaces());
+			collection.Top(1).Where("Name"._Equals("Bob")).Skip(30).ToPath().ShouldEqual("Dogs?$top=1&$filter=Name eq 'Bob'&$skip=30".FixSpaces());
 			
-			//collection.Where("Name"._NotEqual("Bob")).ToPath().ShouldEqual("Dogs?$filter=Name%20eq'Bob'");
-			//collection.Top(1).Where("Name"._NotEqual("Bob")).Skip(30).ToPath("Dogs?$top=1&$filter=Name%20eq'Bob'&$skip=30");
+			// NotEqual
+			collection.Where("Name"._NotEqual("Bob")).ToPath().ShouldEqual("Dogs?$filter=Name ne 'Bob'".FixSpaces());
+			collection.Top(1).Where("Name"._NotEqual("Bob")).Skip(30).ToPath().ShouldEqual("Dogs?$top=1&$filter=Name ne 'Bob'&$skip=30".FixSpaces());
+
+			// Where().Where()
+			collection.Where("Name"._Equals("Bob")).Where("Foo"._NotEqual(5)).ToPath().
+				ShouldEqual("Dogs?$filter=Name eq 'Bob' and Foo ne 5".FixSpaces());
+
+			// Where().And()
+			collection.Where("Name"._Equals("Bob")).And("Foo"._NotEqual(5)).ToPath().
+				ShouldEqual("Dogs?$filter=Name eq 'Bob' and Foo ne 5".FixSpaces());
+
+			// Where().Or()
+			collection.Where("Name"._Equals("Bob")).Or("Foo"._NotEqual(5)).ToPath().
+				ShouldEqual("Dogs?$filter=Name eq 'Bob' or Foo ne 5".FixSpaces());
+
+			// Where("raw string").And(x = y)
+			collection.Where("Id eq 5").And("Name"._NotEqual("Bob")).Or("Foo"._Equals(5)).ToPath().
+				ShouldEqual("Dogs?$filter=Id eq 5 and Name ne 'Bob' or Foo eq 5".FixSpaces());
+
+			// Where(x = y).And("raw string")
+			collection.Where("Name"._NotEqual("Bob")).And("Id eq 5").Or("Foo"._Equals(5)).ToPath().
+				ShouldEqual("Dogs?$filter=Name ne 'Bob' and Id eq 5 or Foo eq 5".FixSpaces());
+
+			// Where(x = y).Or("raw string")
+			collection.Where("Name"._NotEqual("Bob")).Or("Id eq 5").Or("Foo"._Equals(5)).And("more raw").ToPath().
+				ShouldEqual("Dogs?$filter=Name ne 'Bob' or Id eq 5 or Foo eq 5 and more raw".FixSpaces());
 
 			// StartsWith
 			//collection.Where("Name"._StartsWith("Bob")).ToPath().ShouldEqual();

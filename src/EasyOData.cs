@@ -19,6 +19,10 @@ namespace EasyOData {
 				public static Filters.Filter _Equals(this string propertyName, object value) {
 					return new Filters.EqualsFilter(propertyName, value);
 				}
+
+				public static Filters.Filter _NotEqual(this string propertyName, object value) {
+					return new Filters.NotEqualsFilter(propertyName, value);
+				}
 			}
 		}
 
@@ -32,6 +36,22 @@ namespace EasyOData {
 				Value        = value;
 			}
 
+			bool _and = true;
+
+			public bool And {
+				get { return _and;  }
+				set { _and = value; }
+			}
+
+			public bool Or {
+				get { return ! And;  }
+				set { And = ! value; }
+			}
+
+			public string AndOrString {
+				get { return And ? "and" : "or"; }
+			}
+
 			public virtual string PropertyName { get; set; }
 			public virtual object Value        { get; set; }
 
@@ -42,6 +62,18 @@ namespace EasyOData {
 					else
 						return Value.ToString();
 				}
+			}
+		}
+
+		public class RawFilter : Filter {
+			public RawFilter(string raw) {
+				Raw = raw;
+			}
+
+			public string Raw { get; set; }
+
+			public override string ToString() {
+				return Raw;
 			}
 		}
 
@@ -237,7 +269,20 @@ namespace EasyOData {
 
 		public string ValueForFilters {
 			// right now, we only support and ... we need to spec and/or queries to fix this!
-			get { return string.Join(" and ", Filters.Select(f => f.ToString()).ToArray()); }
+			// get { return string.Join(" and ", Filters.Select(f => f.ToString()).ToArray()); }
+
+			get {
+				var filterString = "";
+
+				for (int i = 0; i < Filters.Count; i++) {
+					var filter = Filters[i];
+					if (i > 0)
+						filterString += " " + filter.AndOrString + " ";
+					filterString += filter.ToString();
+				}
+
+				return filterString;
+			}
 		}
 
 		public FilterQueryOption(string rawFilterString) : this() {
@@ -340,12 +385,32 @@ namespace EasyOData {
 			return this;
 		}
 
+		// Raw Filter Strings
 		public Collection Filter(string rawFilterString) {
-			Query.Add(new FilterQueryOption(rawFilterString));
-			return this;
+			return And(rawFilterString);
+		}
+		public Collection Where(string rawFilterString) {
+			return And(rawFilterString);
+		}
+		public Collection And(string rawFilterString) {
+			return And(new Filters.RawFilter(rawFilterString));
+		}
+		public Collection Or(string rawFilterString) {
+			return Or(new Filters.RawFilter(rawFilterString));
 		}
 
 		public Collection Where(Filters.Filter filter) {
+			Query.Add(filter);
+			return this;
+		}
+
+		public Collection And(Filters.Filter filter) {
+			Query.Add(filter);
+			return this;
+		}
+
+		public Collection Or(Filters.Filter filter) {
+			filter.Or = true;
 			Query.Add(filter);
 			return this;
 		}
