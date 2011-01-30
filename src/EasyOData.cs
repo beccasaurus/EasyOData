@@ -154,16 +154,17 @@ namespace EasyOData {
 			};
 		}
 
-		public static List<Entity> ToEntities(this XmlDocument doc, Collection collection) {
+		public static List<Entity> ToEntities(this XmlDocument doc, Query query) {
 			var entities = new List<Entity>();
 			foreach (XmlNode node in doc.GetElementsByTagName("entry"))
-				entities.Add(node.ToEntity(collection));
+				entities.Add(node.ToEntity(query));
 			return entities;
 		}
 
-		public static Entity ToEntity(this XmlNode node, Collection collection) {
-			var entity   = new Entity();
-			var metadata = collection.Service.Metadata;
+		public static Entity ToEntity(this XmlNode node, Query query) {
+			var entity     = new Entity();
+			var collection = query.Collection;
+			var metadata   = collection.Service.Metadata;
 
 			// EntityType.  figure out what type of entity this is using the <category term="Full.Namespace.To.Class" />
 			var fullName      = node.GetElementsByTagName("category")[0].Attr("term");
@@ -357,44 +358,127 @@ namespace EasyOData {
 		public Filters.FilterList Filters { get; set; }
 	}
 
-	public class Query : List<QueryOption> {
-		public Collection Collection { get; set; }
+	public class Query : List<Entity>, IEnumerable<Entity> {
+		public Collection        Collection   { get; set; }
+		public List<QueryOption> QueryOptions { get; set; }
 
-		public Query() {}
-		public Query(Collection collection) {
+		public Query() {
+			QueryOptions = new List<QueryOption>();
+		}
+		public Query(Collection collection) : this() {
 			Collection = collection;
+		}
+
+		public Query Execute() {
+			if (base.Count == 0) {
+				Console.WriteLine("Executing {0}", Path);
+				this.AddRange(Collection.Service.GetXml(ToPath()).ToEntities(this));
+			}
+			return this;
+		}
+
+		public new int Count {
+			get {
+				Execute();
+				return base.Count;
+			}
+		}
+
+		public new IEnumerator<Entity> GetEnumerator() {
+			Execute();
+			return base.GetEnumerator();
 		}
 
 		public FilterQueryOption FilterQueryOption {
 			get {
-				var option = this.FirstOrDefault(o => o is FilterQueryOption) as FilterQueryOption;
+				var option = QueryOptions.FirstOrDefault(o => o is FilterQueryOption) as FilterQueryOption;
 				if (option == null) {
 					option = new FilterQueryOption();
-					this.Add(option);
+					QueryOptions.Add(option);
 				}
 				return option;
 			}
 		}
 
-		public void Add(Filters.Filter filter) {
+		public Query Add(QueryOption option) {
+			QueryOptions.Add(option);
+			return this;
+		}
+
+		public Query Add(Filters.Filter filter) {
 			FilterQueryOption.Add(filter);
+			return this;
 		}
 
 		public string Path {
 			get {
-				//Console.WriteLine("Getting path for {0} which has {1} options", Collection.Href, this.Count);
-
 				// start with the collection's Href
 				var path = Collection.Href;
 
 				// then let each QueryOption modify the path as necessary
-				foreach (QueryOption option in this)
+				foreach (QueryOption option in QueryOptions)
 					path = option.AddToPath(path);
 
 				// return the finished path
 				return path;
 			}
 		}
+
+		#region Query Building Methods
+		public Query Top(int number) {
+			return Add(new TopQueryOption(number));
+		}
+		public Query Skip(int number) {
+			return Add(new SkipQueryOption(number));
+		}
+		public Query Select(params string[] propertyNames) {
+			return Add(new SelectQueryOption(propertyNames));
+		}
+		public Query OrderBy(params string[] propertyNamesWithAscOrDesc) {
+			return Add(new OrderByQueryOption(propertyNamesWithAscOrDesc));
+		}
+		public Query Expand(params string[] propertyOrAssociatinNames) {
+			return Add(new ExpandQueryOption(propertyOrAssociatinNames));
+		}
+		public Query InlineCount() {
+			return Add(new InlineCountQueryOption(true));
+		}
+		public Query NoInlineCount() {
+			return Add(new InlineCountQueryOption(false));
+		}
+		public Query Filter(string rawFilterString) {
+			return And(rawFilterString);
+		}
+		public Query Where(string rawFilterString) {
+			return And(rawFilterString);
+		}
+		public Query And(string rawFilterString) {
+			return And(new Filters.RawFilter(rawFilterString));
+		}
+		public Query Or(string rawFilterString) {
+			return Or(new Filters.RawFilter(rawFilterString));
+		}
+		public Query Where(Filters.Filter filter) {
+			return Add(filter);
+		}
+		public Query And(Filters.Filter filter) {
+			return Add(filter);
+		}
+		public Query Or(Filters.Filter filter) {
+			filter.Or = true;
+			return Add(filter);
+		}
+
+		// calling ToPath() clears out the query options
+		public string ToPath() {
+			var path = Path;
+			QueryOptions.Clear();
+			return path;
+		}
+		public string ToUrl() {
+			return Collection.Service.GetUrl(ToPath());
+		}
+		#endregion
 	}
 
 	public class CollectionList : List<Collection> {
@@ -403,34 +487,10 @@ namespace EasyOData {
 		}
 	}
 
-	public class Collection : List<Entity> {
+	public class Collection {
 		public Service Service { get; set; }
 		public string Name     { get; set; }
 		public string Href     { get; set; }
-
-		// Kicker methods all call this
-		public void ExecuteQuery() {
-			if (Query != null) {
-				Console.WriteLine("Executing Query");
-				this.AddRange(Service.GetXml(ToPath()).ToEntities(this));
-				Console.WriteLine("DONE");
-			}
-		}
-
-		#region Kicker Methods
-		public new int Count {
-			get {
-				ExecuteQuery();
-				return base.Count;
-			}
-		}
-
-		// Can't seem to get this to work so, for now, you need to call Run() for Linq
-		//public new List<Entity>.Enumerator GetEnumerator() {
-		//	ExecuteQuery();
-		//	return base.GetEnumerator();
-		//}
-		#endregion
 
 		Query _query;
 		Query Query {
@@ -441,80 +501,23 @@ namespace EasyOData {
 			}
 		}
 
-		public Collection Top(int number) {
-			Query.Add(new TopQueryOption(number));
-			return this;
-		}
-
-		public Collection Skip(int number) {
-			Query.Add(new SkipQueryOption(number));
-			return this;
-		}
-
-		public Collection Select(params string[] propertyNames) {
-			Query.Add(new SelectQueryOption(propertyNames));
-			return this;
-		}
-
-		public Collection OrderBy(params string[] propertyNamesWithAscOrDesc) {
-			Query.Add(new OrderByQueryOption(propertyNamesWithAscOrDesc));
-			return this;
-		}
-
-		public Collection Expand(params string[] propertyOrAssociatinNames) {
-			Query.Add(new ExpandQueryOption(propertyOrAssociatinNames));
-			return this;
-		}
-
-		public Collection InlineCount() {
-			Query.Add(new InlineCountQueryOption(true));
-			return this;
-		}
-
-		public Collection NoInlineCount() {
-			Query.Add(new InlineCountQueryOption(false));
-			return this;
-		}
-
-		// Raw Filter Strings
-		public Collection Filter(string rawFilterString) {
-			return And(rawFilterString);
-		}
-		public Collection Where(string rawFilterString) {
-			return And(rawFilterString);
-		}
-		public Collection And(string rawFilterString) {
-			return And(new Filters.RawFilter(rawFilterString));
-		}
-		public Collection Or(string rawFilterString) {
-			return Or(new Filters.RawFilter(rawFilterString));
-		}
-
-		public Collection Where(Filters.Filter filter) {
-			Query.Add(filter);
-			return this;
-		}
-
-		public Collection And(Filters.Filter filter) {
-			Query.Add(filter);
-			return this;
-		}
-
-		public Collection Or(Filters.Filter filter) {
-			filter.Or = true;
-			Query.Add(filter);
-			return this;
-		}
-
-		public string ToPath() {
-			var path = Query.Path;
-			_query = null;
-			return path;
-		}
-
-		public string ToUrl() {
-			return Service.GetUrl(ToPath());
-		}
+		// We delegate all Querying calls to Query allowing us to say collection.Top() instead of collection.Query.Top();
+		public Query Top(int number)                { return Query.Top(number);             }
+		public Query Skip(int number)               { return Query.Skip(number);            }
+		public Query Select(params string[] names)  { return Query.Select(names);           }
+		public Query OrderBy(params string[] names) { return Query.OrderBy(names);          }
+		public Query Expand(params string[] names)  { return Query.Expand(names);           }
+		public Query InlineCount()                  { return Query.InlineCount();           }
+		public Query NoInlineCount()                { return Query.NoInlineCount();         }
+		public Query Filter(string rawFilterString) { return Query.Filter(rawFilterString); }
+		public Query Where(string rawFilterString)  { return Query.Where(rawFilterString);  }
+		public Query And(string rawFilterString)    { return Query.And(rawFilterString);    }
+		public Query Or(string rawFilterString)     { return Query.Or(rawFilterString);     }
+		public Query Where(Filters.Filter filter)   { return Query.Where(filter);           }
+		public Query And(Filters.Filter filter)     { return Query.And(filter);             }
+		public Query Or(Filters.Filter filter)      { return Query.Or(filter);              }
+		public string ToPath()                      { return Query.ToPath();                }
+		public string ToUrl()                       { return Query.ToUrl();                 }
 	}
 
 	public class Property {

@@ -40,32 +40,40 @@ namespace EasyOData.Specs {
 			(packages is Query).ShouldBeTrue();
 
 			// Count
-			//packages.Count.ShouldEqual(1);
-			//packages.Clear();
+			packages = service.Collections["Packages"].Top(1);
+			packages.Count.ShouldEqual(1);
 
 			// foreach
-			// foreach (var
+			var myEntities = new List<Entity>();
+			packages = service.Collections["Packages"].Top(1);
+			foreach (var entity in packages)
+				myEntities.Add(entity);
+			myEntities.Count.ShouldEqual(1);
+
+			//var entities = new List<Entity>(packages);
+			//entities.Count.ShouldEqual(1);
 
 			// LINQ
+			packages = service.Collections["Packages"].Top(1).Execute(); // *explicitly* fire off the query so Linq can inspect the results
 
-			//var first = packages.First();
-			//first.EntityType.Name.ShouldEqual("PublishedPackage");
+			var first = packages.First();
+			first.EntityType.Name.ShouldEqual("PublishedPackage");
 
-			//first.Properties["Id"].Value.ShouldEqual("51Degrees.mobi");
-			//first.Properties["Id"].Type.ToString().ShouldEqual("Edm.String");
-			//first.Properties["Id"].IsNullable.ShouldBeFalse();
+			first.Properties["Id"].Value.ShouldEqual("51Degrees.mobi");
+			first.Properties["Id"].Type.ToString().ShouldEqual("Edm.String");
+			first.Properties["Id"].IsNullable.ShouldBeFalse();
 
-			//first.Properties["Version"].Value.ShouldEqual("0.1.11.10");
-			//first.Properties["Title"].Value.ShouldEqual("51Degrees.mobi");
+			first.Properties["Version"].Value.ShouldEqual("0.1.11.10");
+			first.Properties["Title"].Value.ShouldEqual("51Degrees.mobi");
 
-			//first.Properties["Authors"].Value.ShouldEqual("James Rosewell,  Thomas Holmes");
-			//first.Properties["Authors"].IsNullable.ShouldBeTrue();
+			first.Properties["Authors"].Value.ShouldEqual("James Rosewell,  Thomas Holmes");
+			first.Properties["Authors"].IsNullable.ShouldBeTrue();
 
-			//first.Properties["PackageSize"].Type.ToString().ShouldEqual("Edm.Int64");
-			//first.Properties["PackageSize"].IsNullable.ShouldBeFalse();
+			first.Properties["PackageSize"].Type.ToString().ShouldEqual("Edm.Int64");
+			first.Properties["PackageSize"].IsNullable.ShouldBeFalse();
 
-			//first.Properties["IsLatestVersion"].Type.ToString().ShouldEqual("Edm.Boolean");
-			//first.Properties["IsLatestVersion"].IsNullable.ShouldBeFalse();
+			first.Properties["IsLatestVersion"].Type.ToString().ShouldEqual("Edm.Boolean");
+			first.Properties["IsLatestVersion"].IsNullable.ShouldBeFalse();
 		}
 
 		[Test][Ignore]
