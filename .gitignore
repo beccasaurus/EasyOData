@@ -1,0 +1,4 @@
+*.sw?
+*.user
+*.suo
+bin

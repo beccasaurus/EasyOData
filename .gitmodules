@@ -1,0 +1,3 @@
+[submodule "lib/Requestor"]
+	path = lib/Requestor
+	url = https://remi@github.com/remi/Requestor.git
