@@ -1,0 +1,15 @@
+HTTP/1.1 404 Not Found
+Cache-Control: no-cache
+Content-Length: 247
+Content-Type: application/xml
+Server: Microsoft-IIS/7.0
+DataServiceVersion: 1.0;
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Tue, 01 Feb 2011 22:20:07 GMT
+
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<error xmlns="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+  <code></code>
+  <message xml:lang="en-US">Resource not found for the segment 'Courses'.</message>
+</error>

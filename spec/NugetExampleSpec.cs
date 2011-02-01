@@ -33,6 +33,20 @@ namespace EasyOData.Specs {
 		}
 
 		[Test]
+		public void can_get_a_service_collection_dynamically() {
+			dynamic dService = service;
+			(dService.Packages.Name as string).ShouldEqual(service.Collections["Packages"].Name);
+		}
+
+		[Test]
+		public void can_get_an_entities_property_value_dynamically() {
+			dynamic dService = service;
+
+			string id = dService.Packages.Top(1).First.Id;
+			id.ShouldEqual("51Degrees.mobi");
+		}
+
+		[Test]
 		public void can_get_via_keys_using_dictionary() {
 			var package = service["Packages"].Get(new Dictionary<string,object>{ {"Id","NUnit"}, {"Version","2.5.7.10213"} });
 			package["Id"].ShouldEqual("NUnit");

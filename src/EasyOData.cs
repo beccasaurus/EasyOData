@@ -9,6 +9,8 @@ using System.Reflection;
 using System.Collections.Generic;
 using Requestoring;
 
+using System.Dynamic;
+
 namespace EasyOData {
 
 	public static class Util {
@@ -615,7 +617,20 @@ namespace EasyOData {
 		}
 	}
 
-	public class Entity {
+	public class Entity : IDynamicMetaObjectProvider {
+		public DynamicMetaObject GetMetaObject(System.Linq.Expressions.Expression e){ return new MetaObject(e, this); }
+
+		public bool TryGetMember(GetMemberBinder binder, out object result) {
+			var property = Properties[binder.Name];
+			if (property == null) {
+				result = null;
+				return false;
+			} else {
+				result = property.Value;
+				return true;
+			}
+		}
+
 		public Entity() {
 			Properties = new PropertyList();
 		}
@@ -747,7 +762,13 @@ namespace EasyOData {
 	}
 
 	/// <summary>Represents an OData Service</summary>
-	public class Service {
+	public class Service : IDynamicMetaObjectProvider {
+		public DynamicMetaObject GetMetaObject(System.Linq.Expressions.Expression e){ return new MetaObject(e, this); }
+
+		public bool TryGetMember(GetMemberBinder binder, out object result) {
+			result = Collections[binder.Name];
+			return (result != null);
+		}
 
 		public string Root { get; set; }
 

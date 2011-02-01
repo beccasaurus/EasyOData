@@ -1,0 +1,98 @@
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Content-Length: 6241
+Content-Type: application/xml;charset=utf-8
+Server: Microsoft-IIS/7.0
+DataServiceVersion: 2.0;
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Tue, 01 Feb 2011 20:19:04 GMT
+
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+    <Schema Namespace="Pluralsight.OData.Model" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2007/05/edm">
+      <EntityType Name="Course" BaseType="Pluralsight.OData.Model.ModelItemBase">
+        <Property Name="Name" Type="Edm.String" Nullable="true" />
+        <Property Name="ShortDescription" Type="Edm.String" Nullable="true" />
+        <NavigationProperty Name="Modules" Relationship="Pluralsight.OData.Model.Course_Modules" FromRole="Course" ToRole="Modules" />
+      </EntityType>
+      <EntityType Name="ModelItemBase">
+        <Key>
+          <PropertyRef Name="Title" />
+        </Key>
+        <Property Name="Title" Type="Edm.String" Nullable="false" m:FC_TargetPath="SyndicationTitle" m:FC_ContentKind="text" m:FC_KeepInContent="true" />
+        <Property Name="Description" Type="Edm.String" Nullable="true" m:FC_TargetPath="SyndicationSummary" m:FC_ContentKind="text" m:FC_KeepInContent="true" />
+        <Property Name="VideoLength" Type="Edm.String" Nullable="true" />
+        <Property Name="Category" Type="Edm.String" Nullable="true" />
+      </EntityType>
+      <EntityType Name="CourseModule" BaseType="Pluralsight.OData.Model.ModelItemBase">
+        <Property Name="PublishDate" Type="Edm.DateTime" Nullable="false" m:FC_TargetPath="SyndicationPublished" m:FC_ContentKind="text" m:FC_KeepInContent="false" />
+      </EntityType>
+      <EntityType Name="HowTo" BaseType="Pluralsight.OData.Model.ModelItemBase">
+        <Property Name="PublishDate" Type="Edm.DateTime" Nullable="false" m:FC_TargetPath="SyndicationPublished" m:FC_ContentKind="text" m:FC_KeepInContent="false" />
+      </EntityType>
+      <EntityType Name="Tutorial" BaseType="Pluralsight.OData.Model.ModelItemBase">
+        <NavigationProperty Name="Modules" Relationship="Pluralsight.OData.Model.Tutorial_Modules" FromRole="Tutorial" ToRole="Modules" />
+      </EntityType>
+      <EntityType Name="Category">
+        <Key>
+          <PropertyRef Name="Name" />
+        </Key>
+        <Property Name="Name" Type="Edm.String" Nullable="false" m:FC_TargetPath="SyndicationTitle" m:FC_ContentKind="text" m:FC_KeepInContent="true" />
+        <NavigationProperty Name="Modules" Relationship="Pluralsight.OData.Model.Category_Modules" FromRole="Category" ToRole="Modules" />
+        <NavigationProperty Name="Courses" Relationship="Pluralsight.OData.Model.Category_Courses" FromRole="Category" ToRole="Courses" />
+        <NavigationProperty Name="HowTos" Relationship="Pluralsight.OData.Model.Category_HowTos" FromRole="Category" ToRole="HowTos" />
+      </EntityType>
+      <Association Name="Course_Modules">
+        <End Role="Course" Type="Pluralsight.OData.Model.Course" Multiplicity="*" />
+        <End Role="Modules" Type="Pluralsight.OData.Model.CourseModule" Multiplicity="*" />
+      </Association>
+      <Association Name="Tutorial_Modules">
+        <End Role="Tutorial" Type="Pluralsight.OData.Model.Tutorial" Multiplicity="*" />
+        <End Role="Modules" Type="Pluralsight.OData.Model.CourseModule" Multiplicity="*" />
+      </Association>
+      <Association Name="Category_Modules">
+        <End Role="Category" Type="Pluralsight.OData.Model.Category" Multiplicity="*" />
+        <End Role="Modules" Type="Pluralsight.OData.Model.CourseModule" Multiplicity="*" />
+      </Association>
+      <Association Name="Category_Courses">
+        <End Role="Category" Type="Pluralsight.OData.Model.Category" Multiplicity="*" />
+        <End Role="Courses" Type="Pluralsight.OData.Model.Course" Multiplicity="*" />
+      </Association>
+      <Association Name="Category_HowTos">
+        <End Role="Category" Type="Pluralsight.OData.Model.Category" Multiplicity="*" />
+        <End Role="HowTos" Type="Pluralsight.OData.Model.HowTo" Multiplicity="*" />
+      </Association>
+    </Schema>
+    <Schema Namespace="Pluralsight.OData" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2007/05/edm">
+      <EntityContainer Name="Pluralsight" m:IsDefaultEntityContainer="true">
+        <EntitySet Name="Courses" EntityType="Pluralsight.OData.Model.Course" />
+        <EntitySet Name="Modules" EntityType="Pluralsight.OData.Model.CourseModule" />
+        <EntitySet Name="HowTos" EntityType="Pluralsight.OData.Model.HowTo" />
+        <EntitySet Name="Tutorials" EntityType="Pluralsight.OData.Model.Tutorial" />
+        <EntitySet Name="Categories" EntityType="Pluralsight.OData.Model.Category" />
+        <AssociationSet Name="CourseModules" Association="Pluralsight.OData.Model.Course_Modules">
+          <End Role="Course" EntitySet="Courses" />
+          <End Role="Modules" EntitySet="Modules" />
+        </AssociationSet>
+        <AssociationSet Name="TutorialModules" Association="Pluralsight.OData.Model.Tutorial_Modules">
+          <End Role="Tutorial" EntitySet="Tutorials" />
+          <End Role="Modules" EntitySet="Modules" />
+        </AssociationSet>
+        <AssociationSet Name="CategoryModules" Association="Pluralsight.OData.Model.Category_Modules">
+          <End Role="Category" EntitySet="Categories" />
+          <End Role="Modules" EntitySet="Modules" />
+        </AssociationSet>
+        <AssociationSet Name="CategoryCourses" Association="Pluralsight.OData.Model.Category_Courses">
+          <End Role="Category" EntitySet="Categories" />
+          <End Role="Courses" EntitySet="Courses" />
+        </AssociationSet>
+        <AssociationSet Name="CategoryHowTos" Association="Pluralsight.OData.Model.Category_HowTos">
+          <End Role="Category" EntitySet="Categories" />
+          <End Role="HowTos" EntitySet="HowTos" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

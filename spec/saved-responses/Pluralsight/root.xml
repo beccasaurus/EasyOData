@@ -1,0 +1,31 @@
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Content-Length: 784
+Content-Type: application/xml;charset=utf-8
+Server: Microsoft-IIS/7.0
+DataServiceVersion: 1.0;
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Tue, 01 Feb 2011 20:18:54 GMT
+
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<service xml:base="http://www.pluralsight-training.net/odata/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:app="http://www.w3.org/2007/app" xmlns="http://www.w3.org/2007/app">
+  <workspace>
+    <atom:title>Default</atom:title>
+    <collection href="Courses">
+      <atom:title>Courses</atom:title>
+    </collection>
+    <collection href="Modules">
+      <atom:title>Modules</atom:title>
+    </collection>
+    <collection href="HowTos">
+      <atom:title>HowTos</atom:title>
+    </collection>
+    <collection href="Tutorials">
+      <atom:title>Tutorials</atom:title>
+    </collection>
+    <collection href="Categories">
+      <atom:title>Categories</atom:title>
+    </collection>
+  </workspace>
+</service>

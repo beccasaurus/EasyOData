@@ -1,3 +1,6 @@
 [submodule "lib/Requestor"]
 	path = lib/Requestor
 	url = https://remi@github.com/remi/Requestor.git
+[submodule "lib/MetaObject"]
+	path = lib/MetaObject
+	url = https://remi@github.com/remi/MetaObject.git

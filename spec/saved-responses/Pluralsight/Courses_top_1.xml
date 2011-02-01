@@ -1,0 +1,49 @@
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Content-Length: 2564
+Content-Type: application/atom+xml;charset=utf-8
+Server: Microsoft-IIS/7.0
+DataServiceVersion: 1.0;
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Tue, 01 Feb 2011 20:20:27 GMT
+
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<feed xml:base="http://www.pluralsight-training.net/odata/" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">Courses</title>
+  <id>http://www.pluralsight-training.net/Odata/Courses</id>
+  <updated>2011-02-01T20:20:27Z</updated>
+  <link rel="self" title="Courses" href="Courses" />
+  <entry>
+    <id>http://www.pluralsight-training.net/odata/Courses('.NET%20Distributed%20Systems%20Architecture')</id>
+    <title type="text">.NET Distributed Systems Architecture</title>
+    <summary type="text">This course provides an overview of the architecture and technology used to build distributed
+	sytems on the Microsoft platform. The course looks at the general knowledge one needs prior to building a 
+	distributed system. There is a focus on design patterns and concepts as well as an overview of the key technologies
+	used by Microsoft .NET developers.
+    </summary>
+    <updated>2011-02-01T20:20:27Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit" title="Course" href="Courses('.NET%20Distributed%20Systems%20Architecture')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Modules" type="application/atom+xml;type=feed" title="Modules" href="Courses('.NET%20Distributed%20Systems%20Architecture')/Modules" />
+    <category term="Pluralsight.OData.Model.Course" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/xml">
+      <m:properties>
+        <d:Title>.NET Distributed Systems Architecture</d:Title>
+        <d:Description xml:space="preserve">This course provides an overview of the architecture and technology used to build distributed
+	sytems on the Microsoft platform. The course looks at the general knowledge one needs prior to building a 
+	distributed system. There is a focus on design patterns and concepts as well as an overview of the key technologies
+	used by Microsoft .NET developers.
+    </d:Description>
+        <d:VideoLength>05:29:48</d:VideoLength>
+        <d:Category>WCF</d:Category>
+        <d:Name>dotnet-distributed-architecture</d:Name>
+        <d:ShortDescription xml:space="preserve">This course provides an overview of the architecture and technology used to build distributed
+	sytems on the Microsoft platform.
+    </d:ShortDescription>
+      </m:properties>
+    </content>
+  </entry>
+</feed>

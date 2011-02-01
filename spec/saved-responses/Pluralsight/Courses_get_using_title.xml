@@ -1,0 +1,53 @@
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Content-Length: 3551
+Content-Type: application/atom+xml;charset=utf-8
+Server: Microsoft-IIS/7.0
+DataServiceVersion: 1.0;
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Tue, 01 Feb 2011 21:58:12 GMT
+
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<entry xml:base="http://www.pluralsight-training.net/odata/" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+  <id>http://www.pluralsight-training.net/odata/Courses('Agile%20Team%20Practices%20with%20Scrum')</id>
+  <title type="text">Agile Team Practices with Scrum</title>
+  <summary type="text">
+		This course is much different than most of the other courses in the Pluralsight On-Demand! library. 
+		As a course focused purely on software methodology and team processes, it doesn't contain any coding demos or samples for download.
+		In classroom environments, this material is complimented with lost of discussion, what-if scenarios, and group exercises.
+		This course is a great way to introduce Agile Software Development practices to your team or organization. 
+		In addition to learning Scrum, students learn effective techniques for managing Agile teams and projects.
+		Students and teams come away with a solid foundation to begin executing their first Scrum Sprint.
+		This online material is offered here primarily as reference material for customers who have already taken the instructor-led version of this course.
+		To dramatically improve your team's Agility, consider booking an instructor-led course that provides the ideal experience to help you deliver software 
+		iteratively and incrementally.
+  </summary>
+  <updated>2011-02-01T21:58:13Z</updated>
+  <author>
+    <name />
+  </author>
+  <link rel="edit" title="Course" href="Courses('Agile%20Team%20Practices%20with%20Scrum')" />
+  <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Modules" type="application/atom+xml;type=feed" title="Modules" href="Courses('Agile%20Team%20Practices%20with%20Scrum')/Modules" />
+  <category term="Pluralsight.OData.Model.Course" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+  <content type="application/xml">
+    <m:properties>
+      <d:Title>Agile Team Practices with Scrum</d:Title>
+      <d:Description xml:space="preserve">
+		This course is much different than most of the other courses in the Pluralsight On-Demand! library. 
+		As a course focused purely on software methodology and team processes, it doesn't contain any coding demos or samples for download.
+		In classroom environments, this material is complimented with lost of discussion, what-if scenarios, and group exercises.
+		This course is a great way to introduce Agile Software Development practices to your team or organization. 
+		In addition to learning Scrum, students learn effective techniques for managing Agile teams and projects.
+		Students and teams come away with a solid foundation to begin executing their first Scrum Sprint.
+		This online material is offered here primarily as reference material for customers who have already taken the instructor-led version of this course.
+		To dramatically improve your team's Agility, consider booking an instructor-led course that provides the ideal experience to help you deliver software 
+		iteratively and incrementally.
+  </d:Description>
+      <d:VideoLength>03:44:41</d:VideoLength>
+      <d:Category>Software Practices</d:Category>
+      <d:Name>agile-team-practice-fundamentals</d:Name>
+      <d:ShortDescription>Agile software development with a focus on effective Scrum and proven team practices.</d:ShortDescription>
+    </m:properties>
+  </content>
+</entry>

@@ -1,0 +1,77 @@
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Content-Length: 4556
+Content-Type: application/atom+xml;charset=utf-8
+Server: Microsoft-IIS/7.5
+DataServiceVersion: 1.0;
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Tue, 01 Feb 2011 21:26:31 GMT
+
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<feed xml:base="http://media.devexpress.com/Channel.svc/" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">Video</title>
+  <id>http://media.devexpress.com/channel.svc/Video</id>
+  <updated>2011-02-01T21:26:32Z</updated>
+  <link rel="self" title="Video" href="Video" />
+  <entry>
+    <id>http://media.devexpress.com/Channel.svc/Video(guid'bdc4e09e-4120-4c5a-8890-f71c040a8ba0')</id>
+    <title type="text"></title>
+    <updated>2011-02-01T21:26:32Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit" title="Video" href="Video(guid'bdc4e09e-4120-4c5a-8890-f71c040a8ba0')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Tags" type="application/atom+xml;type=feed" title="Tags" href="Video(guid'bdc4e09e-4120-4c5a-8890-f71c040a8ba0')/Tags" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Comments" type="application/atom+xml;type=feed" title="Comments" href="Video(guid'bdc4e09e-4120-4c5a-8890-f71c040a8ba0')/Comments" />
+    <category term="DevExpress.Channel.DataModel.Video" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/xml">
+      <m:properties>
+        <d:Oid m:type="Edm.Guid">bdc4e09e-4120-4c5a-8890-f71c040a8ba0</d:Oid>
+        <d:Title>New Editor Controls for WPF and Silverlight – DXperience 2010.2</d:Title>
+        <d:Description>Starting with the 2010.2 release of DXperience, we’re introducing several new editor controls designed to give you the flexibility of displaying formatted data as well as enhanced runtime data editing functionality.
+&lt;newline /&gt;&lt;newline /&gt;
+Watch on Youtube:
+&lt;newline /&gt;&lt;newline /&gt;
+DevExpress on YouTube: &lt;link href="http://www.youtube.com/watch?v=B6eRknz1I5Q" newwin="yes"&gt;New Editor Controls for WPF and Silverlight&lt;/link&gt;</d:Description>
+        <d:Location>/DXEditors/DXEditorsNewControls/DXEditorsNewControls.flv</d:Location>
+        <d:Date m:type="Edm.DateTime">2010-09-02T18:49:59.71</d:Date>
+        <d:Length m:type="Edm.Int32">217</d:Length>
+        <d:Enabled m:type="Edm.Boolean">true</d:Enabled>
+        <d:Statistics m:type="DevExpress.Channel.DataModel.Statistics">
+          <d:Oid m:type="Edm.Guid">0e75789b-bd1d-41a5-8ef1-ef60f709a498</d:Oid>
+          <d:Count m:type="Edm.Int32">528</d:Count>
+          <d:CompletedCount m:type="Edm.Int32">283</d:CompletedCount>
+        </d:Statistics>
+      </m:properties>
+    </content>
+  </entry>
+  <entry>
+    <id>http://media.devexpress.com/Channel.svc/Video(guid'3f75a1fa-dc6a-4a4c-8936-516307cb78ba')</id>
+    <title type="text"></title>
+    <updated>2011-02-01T21:26:32Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit" title="Video" href="Video(guid'3f75a1fa-dc6a-4a4c-8936-516307cb78ba')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Tags" type="application/atom+xml;type=feed" title="Tags" href="Video(guid'3f75a1fa-dc6a-4a4c-8936-516307cb78ba')/Tags" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Comments" type="application/atom+xml;type=feed" title="Comments" href="Video(guid'3f75a1fa-dc6a-4a4c-8936-516307cb78ba')/Comments" />
+    <category term="DevExpress.Channel.DataModel.Video" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/xml">
+      <m:properties>
+        <d:Oid m:type="Edm.Guid">3f75a1fa-dc6a-4a4c-8936-516307cb78ba</d:Oid>
+        <d:Title>CTO Message - The Single Level of Abstraction Priciple</d:Title>
+        <d:Description>In this video, Julian talks more in depth about the second rule of the composed method pattern.</d:Description>
+        <d:Location>/Julian/SLAPrule/SLAPrule.flv</d:Location>
+        <d:Date m:type="Edm.DateTime">2010-09-01T17:54:15.123</d:Date>
+        <d:Length m:type="Edm.Int32">150</d:Length>
+        <d:Enabled m:type="Edm.Boolean">true</d:Enabled>
+        <d:Statistics m:type="DevExpress.Channel.DataModel.Statistics">
+          <d:Oid m:type="Edm.Guid">9fc5c5a0-d366-4a3a-b521-77ad620b87b6</d:Oid>
+          <d:Count m:type="Edm.Int32">193</d:Count>
+          <d:CompletedCount m:type="Edm.Int32">118</d:CompletedCount>
+        </d:Statistics>
+      </m:properties>
+    </content>
+  </entry>
+</feed>
