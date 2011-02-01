@@ -10,7 +10,7 @@ namespace EasyOData.Specs {
 
 	public static class SpecExtensions {
 		public static string Encode(this string hasSpaces) {
-			return hasSpaces.Replace(" ", "%20").Replace(",", "%2c");
+			return hasSpaces.Replace(" ", "%20").Replace(",", "%2c").Replace("'", "%27");
 		}
 	}
 
@@ -23,10 +23,31 @@ namespace EasyOData.Specs {
 		[SetUp]
 		public void Before() {
 			base.Before();
-			FakeResponse(NuGetServiceRoot,                     "NuGet", "root.xml");
-			FakeResponse(NuGetServiceRoot + "$metadata",       "NuGet", "metadata.xml");
-			FakeResponse(NuGetServiceRoot + "Packages?$top=1", "NuGet", "Packages_top_1.xml");
+			FakeResponse(NuGetServiceRoot,                             "NuGet", "root.xml");
+			FakeResponse(NuGetServiceRoot + "$metadata",               "NuGet", "metadata.xml");
+			FakeResponse(NuGetServiceRoot + "Packages?$top=1",         "NuGet", "Packages_top_1.xml");
+			FakeResponse(NuGetServiceRoot + "Packages?$top=3",         "NuGet", "Packages_top_3.xml");
+			FakeResponse(NuGetServiceRoot + "Packages?$top=3&$skip=2", "NuGet", "Packages_top_3_skip_2.xml");
+			FakeResponse(NuGetServiceRoot + "Packages(Id='NUnit',Version='2.5.7.10213')", "NuGet", "Packages_NUnit.xml");
 			service = new Service(NuGetServiceRoot);
+		}
+
+		[Test]
+		public void can_get_via_keys_using_dictionary() {
+			var package = service["Packages"].Get(new Dictionary<string,object>{ {"Id","NUnit"}, {"Version","2.5.7.10213"} });
+			package["Id"].ShouldEqual("NUnit");
+			package["Version"].ShouldEqual("2.5.7.10213");
+			package["PackageSize"].ToString().ShouldEqual("763203");
+			package["Summary"].ToString().ShouldContain("NUnit is a unit-testing framework");
+		}
+
+		[Test]
+		public void can_get_via_keys_using_anonymous_object() {
+			var package = service["Packages"].Get(new { Id ="NUnit", Version = "2.5.7.10213" });
+			package["Id"].ShouldEqual("NUnit");
+			package["Version"].ShouldEqual("2.5.7.10213");
+			package["PackageSize"].ToString().ShouldEqual("763203");
+			package["Summary"].ToString().ShouldContain("NUnit is a unit-testing framework");
 		}
 
 		[Test]
@@ -50,11 +71,13 @@ namespace EasyOData.Specs {
 				myEntities.Add(entity);
 			myEntities.Count.ShouldEqual(1);
 
-			//var entities = new List<Entity>(packages);
-			//entities.Count.ShouldEqual(1);
+			// make a new list with the packages
+			packages = service.Collections["Packages"].Top(1);
+			var entities = new List<Entity>(packages);
+			entities.Count.ShouldEqual(1);
 
 			// LINQ
-			packages = service.Collections["Packages"].Top(1).Execute(); // *explicitly* fire off the query so Linq can inspect the results
+			packages = service.Collections["Packages"].Top(1);
 
 			var first = packages.First();
 			first.EntityType.Name.ShouldEqual("PublishedPackage");
@@ -76,12 +99,26 @@ namespace EasyOData.Specs {
 			first.Properties["IsLatestVersion"].IsNullable.ShouldBeFalse();
 		}
 
-		[Test][Ignore]
+		[Test]
 		public void can_get_top_3_packages() {
+			var packages = service.Collections["Packages"].Top(3);
+
+			packages[0]["Id"].ShouldEqual("51Degrees.mobi");
+			packages[1]["Id"].ShouldEqual("Adam.JSGenerator");
+			packages[2]["Id"].ShouldEqual("AE.Net.Mail");
+
+			packages.Count.ShouldEqual(3);
 		}
 
-		[Test][Ignore]
+		[Test]
 		public void can_get_top_3_packages_skipping_2() {
+			var packages = service.Collections["Packages"].Top(3).Skip(2);
+
+			packages[0]["Id"].ShouldEqual("AE.Net.Mail");
+			packages[1]["Id"].ShouldEqual("Agatha-rrsl");
+			packages[2]["Id"].ShouldEqual("Altairis.MailToolkit");
+
+			packages.Count.ShouldEqual(3);
 		}
 
 		[Test][Ignore]

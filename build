@@ -9,7 +9,8 @@ clean() {
 build_src() {
 	echo "Building Source"
 	mkdir -pv bin/Debug
-	dmcs /debug:full /debug+ /optimize- /target:library /define:"DEBUG;TRACE" /out:bin/Debug/EasyOData.dll src/*.cs lib/Requestor/src/*.cs
+	#dmcs /debug:full /debug+ /optimize- /target:library /define:"DEBUG;TRACE" /out:bin/Debug/EasyOData.dll src/*.cs lib/Requestor/src/*.cs
+	gmcs /debug:full /debug+ /optimize- /target:library /define:"DEBUG;TRACE" /out:bin/Debug/EasyOData.dll src/*.cs lib/Requestor/src/*.cs /reference:System.Web.dll
 }
 
 build_spec() {

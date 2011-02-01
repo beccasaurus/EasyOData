@@ -5,10 +5,27 @@ using System.Xml;
 using System.Web;
 using System.Text;
 using System.Linq;
+using System.Reflection;
 using System.Collections.Generic;
 using Requestoring;
 
 namespace EasyOData {
+
+	public static class Util {
+
+		// Encode using HttpUtility.UrlEncode, also encoding spaces to %20 and single quotes to %27
+		public static string UrlEncode(this string s) {
+			return HttpUtility.UrlEncode(s).Replace("+", "%20").Replace("'", "%27");
+		}
+
+		public static IDictionary<string,object> ToDictionary(this object anonymousType) {
+			var dict = new Dictionary<string,object>();
+			foreach (var property in anonymousType.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance))
+				if (property.CanRead)
+					dict.Add(property.Name, property.GetValue(anonymousType, null));
+			return dict;
+		}
+	}
 
 	namespace Filters {
 
@@ -66,12 +83,7 @@ namespace EasyOData {
 			public virtual object Value        { get; set; }
 
 			public virtual string ValueString {
-				get {
-					if (Value is string)
-						return "'" + Value + "'";
-					else
-						return Value.ToString();
-				}
+				get { return Query.ToValueString(Value); }
 			}
 		}
 
@@ -133,9 +145,11 @@ namespace EasyOData {
 
 		public static List<XmlNode> GetElementsByTagName(this XmlNode node, string tagName) {
 			var nodes = new List<XmlNode>();
-			foreach (XmlNode child in node.ChildNodes)
+			foreach (XmlNode child in node.ChildNodes) {
+				nodes.AddRange(child.GetElementsByTagName(tagName));
 				if (child.Name == tagName)
 					nodes.Add(child);
+			}
 			return nodes;
 		}
 
@@ -162,8 +176,11 @@ namespace EasyOData {
 		}
 
 		public static Entity ToEntity(this XmlNode node, Query query) {
+			return node.ToEntity(query.Collection);
+		}
+
+		public static Entity ToEntity(this XmlNode node, Collection collection) {
 			var entity     = new Entity();
-			var collection = query.Collection;
 			var metadata   = collection.Service.Metadata;
 
 			// EntityType.  figure out what type of entity this is using the <category term="Full.Namespace.To.Class" />
@@ -186,19 +203,20 @@ namespace EasyOData {
 		}
 
 		public static EntityType ToEntityType(this XmlNode node, Metadata metadata) {
-			var type = new EntityType { Namespace = metadata.Namespace };
+			var type = new EntityType { Namespace = metadata.Namespace, Service = metadata.Service };
 
 			// Name
-			type.Name = node.Attr("Name");
+			type.Name         = node.Attr("Name");
+			type.BaseTypeName = node.Attr("BaseType");
 
 			// Properties
 			foreach (XmlNode propertyNode in node.GetElementsByTagName("Property"))
-				type.Properties.Add(propertyNode.ToProperty());
+				type.CoreProperties.Add(propertyNode.ToProperty());
 
 			// Keys
 			foreach (XmlNode keyNode in node.GetElementsByTagName("Key"))
 				foreach (XmlNode propertyRef in keyNode.GetElementsByTagName("PropertyRef"))
-					type.Properties[propertyRef.Attr("Name")].IsKey = true;
+					type.CoreProperties[propertyRef.Attr("Name")].IsKey = true;
 
 			// Associations
 
@@ -234,7 +252,7 @@ namespace EasyOData {
 
 		public virtual string AddQueryString(string path, string queryKey, string queryValue) {
 			path += path.Contains("?") ? "&" : "?";
-			return string.Format("{0}{1}={2}", path, queryKey, HttpUtility.UrlEncode(queryValue).Replace("+", "%20"));
+			return string.Format("{0}{1}={2}", path, queryKey, queryValue.UrlEncode());
 		}
 
 		public virtual string AddToPath(string path) {
@@ -358,7 +376,7 @@ namespace EasyOData {
 		public Filters.FilterList Filters { get; set; }
 	}
 
-	public class Query : List<Entity>, IEnumerable<Entity> {
+	public class Query : List<Entity>, IList<Entity>, IEnumerable<Entity> {
 		public Collection        Collection   { get; set; }
 		public List<QueryOption> QueryOptions { get; set; }
 
@@ -369,25 +387,39 @@ namespace EasyOData {
 			Collection = collection;
 		}
 
+		// Used to explicitly fire off the query.
+		// All kicker methods call this.
 		public Query Execute() {
-			if (base.Count == 0) {
-				Console.WriteLine("Executing {0}", Path);
+			if (base.Count == 0)
 				this.AddRange(Collection.Service.GetXml(ToPath()).ToEntities(this));
-			}
 			return this;
 		}
 
+		#region Kicker methods
 		public new int Count {
-			get {
-				Execute();
-				return base.Count;
-			}
+			get { Execute(); return base.Count; }
 		}
 
 		public new IEnumerator<Entity> GetEnumerator() {
-			Execute();
-			return base.GetEnumerator();
+			Execute(); return base.GetEnumerator();
 		}
+
+		public Entity this[int index] {
+			get { Execute(); return base[index]; }
+		}
+
+		public bool Contains(Entity entity) {
+			Execute(); return base.Contains(entity);
+		}
+
+		public Entity First {
+			get { return this.First(); }
+		}
+
+		public Entity Last {
+			get { return this.Last(); }
+		}
+		#endregion
 
 		public FilterQueryOption FilterQueryOption {
 			get {
@@ -479,6 +511,24 @@ namespace EasyOData {
 			return Collection.Service.GetUrl(ToPath());
 		}
 		#endregion
+
+		public static string ToValueString(object o) {
+			if (o is string)
+				return string.Format("'{0}'", o);
+			else if (o is Guid)
+				return string.Format("guid'{0}'", o);
+			else
+				return o.ToString();
+		}
+
+		public static string ToEncodedValueString(object o) {
+			if (o is string)
+				return string.Format("'{0}'", (o as string).UrlEncode());
+			else if (o is Guid)
+				return string.Format("guid'{0}'", o);
+			else
+				return o.ToString();
+		}
 	}
 
 	public class CollectionList : List<Collection> {
@@ -499,6 +549,30 @@ namespace EasyOData {
 					_query = new Query(this);
 				return _query;
 			}
+		}
+
+		public Entity GetByKey(string key) {
+			var path = string.Format("{0}({1})", Href, key);
+			var xml  = Service.GetXml(path);
+			if (xml == null)
+				return null;
+			else
+				return xml.GetElementsByTagName("entry")[0].ToEntity(this);
+		}
+
+		public Entity Get(string key) {
+			return GetByKey(Query.ToEncodedValueString(key));
+		}
+
+		public Entity Get(IDictionary<string,object> keys) {
+			return GetByKey(string.Join(",", keys.Select(item => string.Format("{0}={1}", item.Key, Query.ToEncodedValueString(item.Value))).ToArray()));
+		}
+
+		public Entity Get(object key) {
+			if (key.GetType().Name.Contains("AnonType"))
+				return Get(key.ToDictionary());
+			else
+				return GetByKey(Query.ToEncodedValueString(key));
 		}
 
 		// We delegate all Querying calls to Query allowing us to say collection.Top() instead of collection.Query.Top();
@@ -546,26 +620,67 @@ namespace EasyOData {
 			Properties = new PropertyList();
 		}
 
-		public EntityType EntityType { get; set; }
-		public PropertyList Properties { get; set; }
+		public virtual EntityType EntityType { get; set; }
+		public virtual PropertyList Properties { get; set; }
+
+		// Shortcut to get the value of a property
+		public virtual object this[string propertyName] {
+			get {
+				var property = Properties[propertyName];
+				if (property == null)
+					return null;
+				else
+					return property.Value;
+			}
+		}
 	}
 
 	public class EntityType {
 		public EntityType() {
-			Properties = new PropertyList();
+			CoreProperties = new PropertyList();
 		}
 
-		public string Name             { get; set; }
-		public string Namespace        { get; set; }
-		public PropertyList Properties { get; set; }
+		public string Name         { get; set; }
+		public string BaseTypeName { get; set; }
+		public string Namespace    { get; set; }
+		public Service Service     { get; set; }
 
 		public string FullName {
 			get { return Namespace + "." + Name; }
 		}
 
-		public List<string> PropertyNames { get { return Properties.Select(property => property.Name).ToList(); } }
+		public EntityType BaseType {
+			get {
+				return (BaseTypeName == null) ? null : Service.EntityTypes[BaseTypeName];
+			}
+		}
 
 		public PropertyList Keys { get { return new PropertyList(Properties.Where(p => p.IsKey)); } }
+
+		public PropertyList CoreProperties { get; set; }
+		public PropertyList BaseProperties {
+			get {
+				return (BaseType == null) ? null : BaseType.Properties;
+			}
+		}
+		public PropertyList Properties {
+			get {
+				var properties = new PropertyList();
+				if (BaseProperties != null) properties.AddRange(BaseProperties);
+				if (CoreProperties != null) properties.AddRange(CoreProperties);
+				return properties;
+			}
+		}
+
+		public List<string> CorePropertyNames { get { return CoreProperties.Select(property => property.Name).OrderBy(name => name).ToList(); } }
+		public List<string> BasePropertyNames { get { return BaseProperties.Select(property => property.Name).OrderBy(name => name).ToList(); } }
+		public List<string> PropertyNames     { get { return Properties.Select(property => property.Name).OrderBy(name => name).ToList();     } }
+
+		public override bool Equals(object o) {
+			if (o == null || o.GetType() != GetType()) return false;
+			
+			return (o as EntityType).FullName == FullName;
+		}
 	}
 
 	public class EntityTypeList : List<EntityType> {
@@ -641,6 +756,10 @@ namespace EasyOData {
 			Root = root;
 		}
 
+		public Collection this[string collectionName] {
+			get { return Collections[collectionName]; }
+		}
+
 		public CollectionList Collections {
 			get {
 				var collections = new CollectionList();
@@ -650,12 +769,16 @@ namespace EasyOData {
 			}
 		}
 
+		public EntityTypeList EntityTypes {
+			get { return Metadata.EntityTypes; }
+		}
+
 		public Metadata Metadata {
 			get { return new Metadata(this); }
 		}
 
 		public List<string> CollectionNames {
-			get { return Collections.Select(c => c.Name).ToList(); }
+			get { return Collections.Select(c => c.Name).OrderBy(name => name).ToList(); }
 		}
 
 		public string GetUrl(string relativePath) {
@@ -669,12 +792,16 @@ namespace EasyOData {
 			return part1.TrimEnd('/') + "/" + part2.TrimStart('/');
 		}
 
-		IResponse Get(string path) {
+		public IResponse Get(string path) {
 			return _requestor.Get(GetUrl(path));
 		}
 
 		public XmlDocument GetXml(string path) {
-			return GetXmlDocumentForString(Get(path).Body);
+			var response = Get(path);
+			if (response.Status == 404)
+				return null;
+			else
+				return GetXmlDocumentForString(response.Body);
 		}
 		#endregion
 
@@ -685,7 +812,7 @@ namespace EasyOData {
 			public override ICredentials Credentials { set {} }
 		}
 
-		static XmlDocument GetXmlDocumentForString(string xml) {
+		public static XmlDocument GetXmlDocumentForString(string xml) {
 			var doc            = new XmlDocument();
 			var reader         = new XmlTextReader(new StringReader(xml));
 			reader.XmlResolver = new UriSafeXmlResolver();
