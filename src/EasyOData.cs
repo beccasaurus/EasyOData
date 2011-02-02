@@ -10,7 +10,9 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Requestoring;
 
-using System.Dynamic;
+#if NET40
+	using System.Dynamic;
+#endif
 
 namespace EasyOData {
 
@@ -576,14 +578,7 @@ namespace EasyOData {
 		public string Name     { get; set; }
 		public string Href     { get; set; }
 
-		Query _query;
-		Query Query {
-			get {
-				if (_query == null)
-					_query = new Query(this);
-				return _query;
-			}
-		}
+		Query Query { get { return new Query(this); } }
 
 		public Entity GetByKey(string key) {
 			var path = string.Format("{0}({1})", Href, key);
@@ -663,7 +658,13 @@ namespace EasyOData {
 		}
 	}
 
-	public class Entity : IDynamicMetaObjectProvider {
+	public class Entity
+#if NET40
+		: IDynamicMetaObjectProvider 
+#endif
+{
+
+#if NET40
 		public DynamicMetaObject GetMetaObject(System.Linq.Expressions.Expression e){ return new MetaObject(e, this); }
 
 		public bool TryGetMember(GetMemberBinder binder, out object result) {
@@ -676,6 +677,7 @@ namespace EasyOData {
 				return true;
 			}
 		}
+#endif
 
 		public Entity() {
 			Properties = new PropertyList();
@@ -809,13 +811,20 @@ namespace EasyOData {
 	}
 
 	/// <summary>Represents an OData Service</summary>
-	public class Service : IDynamicMetaObjectProvider {
+	public class Service 
+#if NET40
+	: IDynamicMetaObjectProvider
+#endif
+{
+
+#if NET40
 		public DynamicMetaObject GetMetaObject(System.Linq.Expressions.Expression e){ return new MetaObject(e, this); }
 
 		public bool TryGetMember(GetMemberBinder binder, out object result) {
 			result = Collections[binder.Name];
 			return (result != null);
 		}
+#endif
 
 		public string Root { get; set; }
 
@@ -828,12 +837,15 @@ namespace EasyOData {
 			get { return Collections[collectionName]; }
 		}
 
+		CollectionList _collections;
 		public CollectionList Collections {
 			get {
-				var collections = new CollectionList();
-				foreach (XmlNode node in GetXml("/").GetElementsByTagName("collection"))
-					collections.Add(node.ToCollection(this));
-				return collections;
+				if (_collections == null) {
+					_collections = new CollectionList();
+					foreach (XmlNode node in GetXml("/").GetElementsByTagName("collection"))
+						_collections.Add(node.ToCollection(this));
+				}
+				return _collections;
 			}
 		}
 

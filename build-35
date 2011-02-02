@@ -1,0 +1,22 @@
+#! /bin/bash
+
+clean() {
+	echo "Cleaning Up"
+	find . -name 'obj' -type d -exec rm -rfv {} \;
+	rm -rfv bin
+}
+
+build_src() {
+	echo "Building Source"
+	mkdir -pv bin/Debug
+	gmcs /debug:full /debug+ /optimize- /target:library /define:"DEBUG;TRACE" /out:bin/Debug/EasyOData.dll src/*.cs lib/Requestor/src/*.cs /reference:System.Web.dll
+}
+
+build_spec() {
+	echo "Building Specs"
+	dmcs /debug:full /debug+ /optimize- /target:library /define:"DEBUG;TRACE" /out:bin/Debug/EasyOData.Specs.dll spec/*.cs \
+	/reference:bin/Debug/EasyOData.dll /reference:lib/nunit.framework.dll /reference:lib/NUnit.Should.dll \
+	&& cp -v lib/*.dll bin/Debug/
+}
+
+clean && build_src && build_spec

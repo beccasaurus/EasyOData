@@ -72,6 +72,7 @@ namespace EasyOData.Specs {
 			package.Xml.ShouldContain("<id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='NUnit',Version='2.5.7.10213')</id>");
 		}
 
+#if NET40
 		[Test]
 		public void can_get_a_service_collection_dynamically() {
 			dynamic dService = service;
@@ -85,6 +86,7 @@ namespace EasyOData.Specs {
 			string id = dService.Packages.Top(1).First.Id;
 			id.ShouldEqual("51Degrees.mobi");
 		}
+#endif
 
 		[Test]
 		public void can_get_via_keys_using_dictionary() {
