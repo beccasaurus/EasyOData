@@ -200,10 +200,7 @@ namespace EasyOData {
 				throw new Exception(string.Format("Couldn't find EntityType by name: {0}", fullName));
 
 			// Properties.  clone them from the EntityType, then fill in the values from the XML
-			entity.Properties = new PropertyList();
-			foreach (var property in entity.EntityType.Properties)
-				entity.Properties.Add(property.Clone());
-
+			entity.Properties = new PropertyList(entity.EntityType.Properties);
 			foreach (XmlNode propertyNode in node.GetElementsByTagName("m:properties")[0].ChildNodes) {
 				var propertyName  = propertyNode.Name.Replace("d:", "");
 				var propertyValue = propertyNode.InnerText;
@@ -408,18 +405,35 @@ namespace EasyOData {
 		// All kicker methods call this.
 		public Query Execute() {
 			if (_executed == true) return this;
-
 			_executed = true;
-			var path  = ToPath();
-			var pages = 0;
 
-			while (path != null) {
-				if (PagesToReturn > 0 && pages >= PagesToReturn) break;
-				pages++;
+			var path = ToPath();
+			Console.WriteLine("Execute {0}", path);
 
-				var xml = Service.GetXml(path);
-				this.AddRange(xml.ToEntities(this));
-				path = xml.GetNextUrl();
+			// If we asked for a certain number of pages
+			if (PagesToReturn > 0) {
+
+				throw new Exception("haven't implemented explicit paging yet");
+				//for (int i = 0; i < PagesToReturn; i++) {
+				//	var xml = Service.GetXml(path);
+				//	this.AddRange(xml.ToEntities(this));
+				//	path = xml.GetNextUrl();
+				//	if (path == null)
+				//		break;
+				//}
+
+			// Else we want all pages
+			} else {
+				while (path != null) {
+					Console.WriteLine("I have {0} entities", Count);
+					Console.WriteLine(string.Join(",", this.Select(p => p["Id"]).ToArray()));
+
+					var xml = Service.GetXml(path);
+					var entities = xml.ToEntities(this);
+					Console.WriteLine("ENTITIES: {0}", string.Join(",", entities.Select(p => p["Id"]).ToArray()));
+					//this.AddRange(xml.ToEntities(this));
+					path = xml.GetNextUrl();
+				}
 			}
 
 			return this;
@@ -639,17 +653,8 @@ namespace EasyOData {
 		public bool IsNullable { get; set; }
 		public bool IsKey { get; set; }
 		public object Value { get; set; }
-		public string Type { get { return TypeName; } } // this should be the entity type, eventually
 
-		public Property Clone() {
-			return new Property {
-				Name       = this.Name,
-				TypeName   = this.TypeName,
-				IsNullable = this.IsNullable,
-				IsKey      = this.IsKey,
-				Value      = this.Value
-			};
-		}
+		public string Type { get { return TypeName; } } // this should be the entity type, eventually
 	}
 
 	public class PropertyList : List<Property> {

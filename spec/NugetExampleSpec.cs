@@ -23,13 +23,53 @@ namespace EasyOData.Specs {
 		[SetUp]
 		public void Before() {
 			base.Before();
-			FakeResponse(NuGetServiceRoot,                             "NuGet", "root.xml");
-			FakeResponse(NuGetServiceRoot + "$metadata",               "NuGet", "metadata.xml");
-			FakeResponse(NuGetServiceRoot + "Packages?$top=1",         "NuGet", "Packages_top_1.xml");
-			FakeResponse(NuGetServiceRoot + "Packages?$top=3",         "NuGet", "Packages_top_3.xml");
-			FakeResponse(NuGetServiceRoot + "Packages?$top=3&$skip=2", "NuGet", "Packages_top_3_skip_2.xml");
-			FakeResponse(NuGetServiceRoot + "Packages(Id='NUnit',Version='2.5.7.10213')", "NuGet", "Packages_NUnit.xml");
+			FakeResponse(NuGetServiceRoot,                                                       "NuGet", "root.xml");
+			FakeResponse(NuGetServiceRoot + "$metadata",                                         "NuGet", "metadata.xml");
+			FakeResponse(NuGetServiceRoot + "Packages?$top=1",                                   "NuGet", "Packages_top_1.xml");
+			FakeResponse(NuGetServiceRoot + "Packages?$top=3",                                   "NuGet", "Packages_top_3.xml");
+			FakeResponse(NuGetServiceRoot + "Packages?$top=3&$skip=2",                           "NuGet", "Packages_top_3_skip_2.xml");
+			FakeResponse(NuGetServiceRoot + "Packages(Id='NUnit',Version='2.5.7.10213')",        "NuGet", "Packages_NUnit.xml");
+			FakeResponse(NuGetServiceRoot + "Packages",                                          "NuGet", "Packages.xml");
+			FakeResponse(NuGetServiceRoot + "Packages?$skiptoken='combres.mvc','2.2.1.2'",       "NuGet", "Packages_page_2.xml");
+			FakeResponse(NuGetServiceRoot + "Packages?$skiptoken='ImpromptuInterface','1.2.1'",  "NuGet", "Packages_page_3.xml");
+			FakeResponse(NuGetServiceRoot + "Packages?$skiptoken='MvcContrib.WatiN','2.0.96.0'", "NuGet", "Packages_page_4.xml");
+			FakeResponse(NuGetServiceRoot + "Packages?$skiptoken='postal','0.2.0'",              "NuGet", "Packages_page_5.xml");
+			FakeResponse(NuGetServiceRoot + "Packages?$skiptoken='StructureMap-MVC3','1.0.2'",   "NuGet", "Packages_page_6.xml");
 			service = new Service(NuGetServiceRoot);
+		}
+
+		[Test]
+		public void can_get_all_packages_using_pagination() {
+			var packages = service["Packages"];
+
+			packages.Count.ShouldEqual(564);
+			packages.First["Id"].ShouldEqual("51Degrees.mobi");
+			packages.Last["Id"].ShouldEqual("YUICompressor.NET");
+		}
+
+		[Test]
+		public void can_get_1_page_of_packages() {
+			var packages = service["Packages"].Pages(1);
+
+			packages.Count.ShouldEqual(100);
+			packages.First["Id"].ShouldEqual("51Degrees.mobi");
+			packages.Last["Id"].ShouldEqual("combres.mvc");
+		}
+
+		[Test][Ignore]
+		public void can_get_2_pages_of_packages() {
+			var packages = service["Packages"].Pages(2);
+
+			packages.Count.ShouldEqual(100);
+			packages.First["Id"].ShouldEqual("51Degrees.mobi");
+			packages.Last["Id"].ShouldEqual("ImpromptuInterface");
+		}
+
+		[Test]
+		public void can_get_raw_entity_xml() {
+			var package = service["Packages"].Get(new { Id ="NUnit", Version = "2.5.7.10213" });
+			package["Id"].ShouldEqual("NUnit");
+			package.Xml.ShouldContain("<id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='NUnit',Version='2.5.7.10213')</id>");
 		}
 
 		[Test]
