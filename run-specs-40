@@ -1,0 +1,3 @@
+#! /bin/bash
+export NUNIT_CONSOLE=nunit-console4
+nunit-color-console -labels "$@" bin/Debug/NET40/EasyOData.Specs.dll

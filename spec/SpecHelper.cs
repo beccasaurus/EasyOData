@@ -17,7 +17,7 @@ namespace EasyOData.Specs {
 		}
 
 		public string SavedResponseDir {
-			get { return Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "spec", "saved-responses"); }
+			get { return Path.Combine(Directory.GetCurrentDirectory(), "..", "..", "..", "spec", "saved-responses"); }
 		}
 
 		public void FakeResponse(string getUrl, params string[] pathToSavedResponse) {

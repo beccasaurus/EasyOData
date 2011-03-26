@@ -8,15 +8,15 @@ clean() {
 
 build_src() {
 	echo "Building Source"
-	mkdir -pv bin/Debug
-	gmcs /debug:full /debug+ /optimize- /target:library /define:"DEBUG;TRACE" /out:bin/Debug/EasyOData.dll src/*.cs lib/Requestor/src/*.cs /reference:System.Web.dll
+	mkdir -pv bin/Debug/NET35
+	gmcs /debug:full /debug+ /optimize- /target:library /define:"DEBUG;TRACE" /out:bin/Debug/NET35/EasyOData.dll src/*.cs lib/Requestor/src/*.cs /reference:System.Web.dll
 }
 
 build_spec() {
 	echo "Building Specs"
-	dmcs /debug:full /debug+ /optimize- /target:library /define:"DEBUG;TRACE" /out:bin/Debug/EasyOData.Specs.dll spec/*.cs \
-	/reference:bin/Debug/EasyOData.dll /reference:lib/nunit.framework.dll /reference:lib/NUnit.Should.dll \
-	&& cp -v lib/*.dll bin/Debug/
+	dmcs /debug:full /debug+ /optimize- /target:library /define:"DEBUG;TRACE" /out:bin/Debug/NET35/EasyOData.Specs.dll spec/*.cs \
+	/reference:bin/Debug/NET35/EasyOData.dll /reference:lib/nunit.framework.dll /reference:lib/NUnit.Should.dll \
+	&& cp -v lib/*.dll bin/Debug/NET35/
 }
 
 clean && build_src && build_spec

@@ -169,7 +169,7 @@ namespace EasyOData {
 			return new Property {
 				Name       = node.Attr("Name"),
 				TypeName   = node.Attr("Type"),
-				IsNullable = bool.Parse(node.Attr("Nullable"))
+				IsNullable = (node.Attr("Nullable") == null) ? true : bool.Parse(node.Attr("Nullable"))
 			};
 		}
 
