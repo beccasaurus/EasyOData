@@ -9,12 +9,64 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Requestoring;
+using EasyOData.Conversions.Extensions; // TODO reverse, so you use EasyOData.Extensions.* ?
+
+// So ... somehow I never split this into multiple files?  Crazy!  TODO - Organize this into multiple files ...
 
 #if NET40
 	using System.Dynamic;
 #endif
 
 namespace EasyOData {
+
+	namespace Conversions.Extensions {
+
+		public delegate bool TryParseDelegate<T>(string s, out T result);
+
+		public static class CastingExtensions {
+
+			public static int      TryParseInt(     this string value){ return value.TryParse<int>(     int.TryParse); }
+			public static bool     TryParseBool(    this string value){ return value.TryParse<bool>(    bool.TryParse); }
+			public static decimal  TryParseDecimal( this string value){ return value.TryParse<decimal>( decimal.TryParse); }
+			public static double   TryParseDouble(  this string value){ return value.TryParse<double>(  double.TryParse); }
+			public static Int64    TryParseInt64(   this string value){ return value.TryParse<Int64>(   Int64.TryParse); }
+			public static DateTime TryParseDateTime(this string value){ return value.TryParse<DateTime>(DateTime.TryParse); }
+
+			public static T TryParse<T>(this string value) {
+				if (typeof(T) == typeof(int))      return (T) (object) value.TryParseInt();
+				if (typeof(T) == typeof(bool))     return (T) (object) value.TryParseBool();
+				if (typeof(T) == typeof(decimal))  return (T) (object) value.TryParseDecimal();
+				if (typeof(T) == typeof(double))   return (T) (object) value.TryParseDouble();
+				if (typeof(T) == typeof(Int64))    return (T) (object) value.TryParseInt64();
+				if (typeof(T) == typeof(DateTime)) return (T) (object) value.TryParseDateTime();
+				else
+					throw new Exception(string.Format("Don't know how to TryParse T:{0}", typeof(T)));
+			}
+
+			public static T TryParse<T>(this string value, TryParseDelegate<T> parseDelegate) {
+				T result;
+				parseDelegate(value, out result);
+				return result;
+			}
+
+			// If we have a string that we're casting *from*, check for NullOrEmpty
+			public static T As<T>(this string o) {
+				if (string.IsNullOrEmpty(o))
+					return default(T);
+				else
+					return ((object) o).As<T>();
+			}
+
+			public static T As<T>(this object o) {
+				if (o == null) return default(T);
+				if (typeof(T).IsValueType)
+					return o.ToString().TryParse<T>();
+				else {
+					return (T) o;
+				}
+			}
+		}
+	}
 
 	public static class Util {
 
@@ -211,7 +263,7 @@ namespace EasyOData {
 				var propertyValue = propertyNode.InnerText;
 				if (entity.Properties[propertyName] == null)
 					throw new Exception(string.Format("EntityType {0} doesn't have property {1}", entity.EntityType.Name, propertyName));
-				entity.Properties[propertyName].Value = propertyValue;
+				entity.Properties[propertyName].Text = propertyValue;
 			}
 
 			return entity;
@@ -631,10 +683,29 @@ namespace EasyOData {
 	public class Property {
 		public string Name { get; set; }
 		public string TypeName { get; set; } // TODO this should eventually just get { EdmType.Name }
-		public bool IsNullable { get; set; }
-		public bool IsKey { get; set; }
-		public object Value { get; set; }
+		public bool   IsNullable { get; set; }
+		public bool   IsKey { get; set; }
+		public string Text { get; set; }
 		public string Type { get { return TypeName; } } // this should be the entity type, eventually
+
+		// Returns Text, casted to the appropriate type, per the Edm.* TypeName
+		public object Value {
+			get {
+				switch (TypeName) {
+					case "Edm.String":   return Text.As<string>();
+					case "Edm.Boolean":  return Text.As<bool>();
+					case "Edm.DateTime": return Text.As<DateTime>();
+					case "Edm.Int32":    return Text.As<int>();
+					case "Edm.Int64":    return Text.As<Int64>();
+					case "Edm.Double":   return Text.As<double>();
+					case "Edm.Decimal":  return Text.As<decimal>();
+					default: 
+						Console.WriteLine("Unknown type: {0}", TypeName);
+						return Text;
+				}
+			}
+			set { Text = (value == null) ? null : value.ToString(); }
+		}
 
 		public Property Clone() {
 			return new Property {

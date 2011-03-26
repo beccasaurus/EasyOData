@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using Requestoring;
 using EasyOData;
+using EasyOData.Conversions.Extensions;
 using EasyOData.Filters.Extensions; // gives us the _Equals() style extension methods
 using NUnit.Framework;
 
@@ -94,6 +95,9 @@ namespace EasyOData.Specs {
 			package["Id"].ShouldEqual("NUnit");
 			package["Version"].ShouldEqual("2.5.7.10213");
 			package["PackageSize"].ToString().ShouldEqual("763203");
+			package["PackageSize"].ShouldEqual(763203);                 // object
+			package["PackageSize"].GetType().ShouldEqual(typeof(Int64));  // it's really an int
+			(package["PackageSize"].As<int>() + 5).ShouldEqual(763208); // Make sure we can treat it like an integer
 			package["Summary"].ToString().ShouldContain("NUnit is a unit-testing framework");
 		}
 
@@ -138,14 +142,14 @@ namespace EasyOData.Specs {
 			var first = packages.First();
 			first.EntityType.Name.ShouldEqual("PublishedPackage");
 
-			first.Properties["Id"].Value.ShouldEqual("51Degrees.mobi");
+			first.Properties["Id"].Text.ShouldEqual("51Degrees.mobi");
 			first.Properties["Id"].Type.ToString().ShouldEqual("Edm.String");
 			first.Properties["Id"].IsNullable.ShouldBeFalse();
 
-			first.Properties["Version"].Value.ShouldEqual("0.1.11.10");
-			first.Properties["Title"].Value.ShouldEqual("51Degrees.mobi");
+			first.Properties["Version"].Text.ShouldEqual("0.1.11.10");
+			first.Properties["Title"].Text.ShouldEqual("51Degrees.mobi");
 
-			first.Properties["Authors"].Value.ShouldEqual("James Rosewell,  Thomas Holmes");
+			first.Properties["Authors"].Text.ShouldEqual("James Rosewell,  Thomas Holmes");
 			first.Properties["Authors"].IsNullable.ShouldBeTrue();
 
 			first.Properties["PackageSize"].Type.ToString().ShouldEqual("Edm.Int64");
