@@ -198,6 +198,7 @@ namespace EasyOData {
 		}
 	}
 
+	// TODO - this overlaps with FluentXml (and FluentXml has tests) ... we should bring that in, instead, for the non-custom stuff ...
 	public static class XmlParsing {
 
 		public static List<XmlNode> GetElementsByTagName(this XmlNode node, string tagName) {
@@ -758,6 +759,10 @@ namespace EasyOData {
 		public virtual EntityType EntityType { get; set; }
 		public virtual PropertyList Properties { get; set; }
 
+		public virtual List<string> PropertyNames {
+			get { return Properties.Select(p => p.Name).ToList(); }
+		}
+
 		// Shortcut to get the value of a property
 		public virtual object this[string propertyName] {
 			get {
@@ -953,7 +958,6 @@ namespace EasyOData {
 		}
 
 		public IResponse Get(string path) {
-			Console.WriteLine("GET {0}", GetUrl(path));
 			return _requestor.Get(GetUrl(path));
 		}
 
