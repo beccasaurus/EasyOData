@@ -9,7 +9,7 @@ clean() {
 build_src() {
 	echo "Building Source"
 	mkdir -pv bin/Debug/NET35
-	gmcs /debug:full /debug+ /optimize- /target:library /define:"DEBUG;TRACE" /out:bin/Debug/NET35/EasyOData.dll src/*.cs lib/Requestor/src/*.cs /reference:System.Web.dll
+	gmcs /debug:full /debug+ /optimize- /target:library /define:"DEBUG;TRACE" /out:bin/Debug/NET35/EasyOData.dll AssemblyInfo.cs src/*.cs lib/Requestor/src/*.cs /reference:System.Web.dll
 }
 
 build_spec() {
