@@ -4,3 +4,6 @@
 [submodule "lib/MetaObject"]
 	path = lib/MetaObject
 	url = https://remi@github.com/remi/MetaObject.git
+[submodule "lib/FluentXml"]
+	path = lib/FluentXml
+	url = https://remi@github.com/remi/FluentXml.git

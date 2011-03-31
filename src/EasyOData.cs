@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Requestoring;
+using FluentXml;
 using EasyOData.Conversions.Extensions; // TODO reverse, so you use EasyOData.Extensions.* ?
 
 // So ... somehow I never split this into multiple files?  Crazy!  TODO - Organize this into multiple files ...
@@ -198,25 +199,7 @@ namespace EasyOData {
 		}
 	}
 
-	// TODO - this overlaps with FluentXml (and FluentXml has tests) ... we should bring that in, instead, for the non-custom stuff ...
 	public static class XmlParsing {
-
-		public static List<XmlNode> GetElementsByTagName(this XmlNode node, string tagName) {
-			var nodes = new List<XmlNode>();
-			foreach (XmlNode child in node.ChildNodes) {
-				nodes.AddRange(child.GetElementsByTagName(tagName));
-				if (child.Name == tagName)
-					nodes.Add(child);
-			}
-			return nodes;
-		}
-
-		public static string Attr(this XmlNode node, string attributeName) {
-			if (node.Attributes[attributeName] != null)
-				return node.Attributes[attributeName].Value;
-			else
-				return null;
-		}
 
 		public static Property ToProperty(this XmlNode node) {
 			return new Property {
@@ -227,7 +210,7 @@ namespace EasyOData {
 		}
 
 		public static string GetNextUrl(this XmlDocument doc) {
-			foreach (XmlNode link in doc.GetElementsByTagName("link"))
+			foreach (XmlNode link in doc.Nodes("link"))
 				if (link.Attr("rel") == "next")
 					return link.Attr("href");
 			return null;
@@ -235,7 +218,7 @@ namespace EasyOData {
 
 		public static List<Entity> ToEntities(this XmlDocument doc, Query query) {
 			var entities = new List<Entity>();
-			foreach (XmlNode node in doc.GetElementsByTagName("entry"))
+			foreach (XmlNode node in doc.Nodes("entry"))
 				entities.Add(node.ToEntity(query));
 			return entities;
 		}
@@ -249,7 +232,7 @@ namespace EasyOData {
 			var metadata   = collection.Service.Metadata;
 
 			// EntityType.  figure out what type of entity this is using the <category term="Full.Namespace.To.Class" />
-			var fullName      = node.GetElementsByTagName("category")[0].Attr("term");
+			var fullName      = node.Nodes("category")[0].Attr("term");
 			entity.EntityType = metadata.EntityTypes[fullName];
 			if (entity.EntityType == null)
 				throw new Exception(string.Format("Couldn't find EntityType by name: {0}", fullName));
@@ -259,7 +242,7 @@ namespace EasyOData {
 			foreach (var property in entity.EntityType.Properties)
 				entity.Properties.Add(property.Clone());
 
-			foreach (XmlNode propertyNode in node.GetElementsByTagName("m:properties")[0].ChildNodes) {
+			foreach (XmlNode propertyNode in node.Nodes("m:properties")[0].ChildNodes) {
 				var propertyName  = propertyNode.Name.Replace("d:", "");
 				var propertyValue = propertyNode.InnerText;
 				if (entity.Properties[propertyName] == null)
@@ -278,12 +261,12 @@ namespace EasyOData {
 			type.BaseTypeName = node.Attr("BaseType");
 
 			// Properties
-			foreach (XmlNode propertyNode in node.GetElementsByTagName("Property"))
+			foreach (XmlNode propertyNode in node.Nodes("Property"))
 				type.CoreProperties.Add(propertyNode.ToProperty());
 
 			// Keys
-			foreach (XmlNode keyNode in node.GetElementsByTagName("Key"))
-				foreach (XmlNode propertyRef in keyNode.GetElementsByTagName("PropertyRef"))
+			foreach (XmlNode keyNode in node.Nodes("Key"))
+				foreach (XmlNode propertyRef in keyNode.Nodes("PropertyRef"))
 					type.CoreProperties[propertyRef.Attr("Name")].IsKey = true;
 
 			// Associations
@@ -298,7 +281,6 @@ namespace EasyOData {
 				Service = service
 			};
 		}
-
 	}
 
 	public abstract class QueryOption {
@@ -639,7 +621,7 @@ namespace EasyOData {
 			if (xml == null)
 				return null;
 			else
-				return xml.GetElementsByTagName("entry")[0].ToEntity(this);
+				return xml.Nodes("entry")[0].ToEntity(this);
 		}
 
 		public Entity Get(string key) {
@@ -861,11 +843,11 @@ namespace EasyOData {
 			var doc = Service.GetXml("$metadata");
 
 			// get namespace
-			Namespace = doc.GetElementsByTagName("Schema")[0].Attr("Namespace");
+			Namespace = doc.Nodes("Schema")[0].Attr("Namespace");
 
 			// get entity types
 			var types = new EntityTypeList();
-			foreach (XmlNode node in doc.GetElementsByTagName("EntityType"))
+			foreach (XmlNode node in doc.Nodes("EntityType"))
 				types.Add(node.ToEntityType(this));
 			EntityTypes = types;
 		}
@@ -923,7 +905,7 @@ namespace EasyOData {
 			get {
 				if (_collections == null) {
 					_collections = new CollectionList();
-					foreach (XmlNode node in GetXml("/").GetElementsByTagName("collection"))
+					foreach (XmlNode node in GetXml("/").Nodes("collection"))
 						_collections.Add(node.ToCollection(this));
 				}
 				return _collections;

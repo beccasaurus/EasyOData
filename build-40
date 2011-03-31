@@ -9,7 +9,7 @@ clean() {
 build_src() {
 	echo "Building Source"
 	mkdir -pv bin/Debug/NET40
-	dmcs /debug:full /debug+ /optimize- /target:library /define:"DEBUG;TRACE;NET40" /out:bin/Debug/NET40/EasyOData.dll AssemblyInfo.cs src/*.cs lib/Requestor/src/*.cs lib/MetaObject/src/MetaObject.cs /reference:System.Web.dll
+	dmcs /debug:full /debug+ /optimize- /target:library /define:"DEBUG;TRACE;NET40" /out:bin/Debug/NET40/EasyOData.dll AssemblyInfo.cs src/*.cs lib/Requestor/src/*.cs lib/FluentXml/src/FluentXml.cs lib/MetaObject/src/MetaObject.cs /reference:System.Web.dll
 }
 
 build_spec() {
