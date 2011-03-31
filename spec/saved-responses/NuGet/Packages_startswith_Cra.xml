@@ -1,0 +1,1098 @@
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Content-Length: 79959
+Content-Type: application/atom+xml;charset=utf-8
+Server: Microsoft-IIS/7.0
+DataServiceVersion: 2.0;
+X-AspNet-Version: 4.0.30319
+X-Powered-By: ASP.NET
+Date: Thu, 31 Mar 2011 01:47:48 GMT
+
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<feed xml:base="http://packages.nuget.org/v1/FeedService.svc/" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">Packages</title>
+  <id>http://packages.nuget.org/v1/FeedService.svc/Packages</id>
+  <updated>2011-03-31T01:47:48Z</updated>
+  <link rel="self" title="Packages" href="Packages" />
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='Crack',Version='0.1.0.0')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='Crack',Version='0.1.0.0')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='Crack',Version='0.1.0.0')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='Crack',Version='0.1.0.0')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/Crack/0.1.0.0" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>Crack</d:Id>
+      <d:Version>0.1.0.0</d:Version>
+      <d:Title>Crack</d:Title>
+      <d:Authors>remi Taylor</d:Authors>
+      <d:PackageType>Packages</d:PackageType>
+      <d:Summary>Crack == Console Rack.  Rack-like interface for CLI applications.  CLI Middleware FTW!</d:Summary>
+      <d:Description>Crack == Console Rack.  Rack-like interface for CLI applications.  CLI Middleware FTW!</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>//R6UV+8bAFTHlSLE3fxMShKVapCcuXwW01ypXzd8RcJdTAKeVZ5rtQEUsNLAa6XtuDsPUVnHnzEShDGPdmyHA==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">25576</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">1</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-30T19:51:00.077</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-30T19:51:31.907</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-30T19:51:46.577</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>https://github.com/remi/Crack</d:ProjectUrl>
+      <d:LicenseUrl m:null="true"></d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">1</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies></d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/Crack/0.1.0.0</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List/Packages/Crack/0.1.0.0</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>Craig's Utility Library is a set of utility classes to handle various tasks including encryption, compression, serialization, file management, email, image manipulation, Active Directory, Exchange, SQL, various file formats (CSV, iCal, etc.), Cisco phone apps, WMI queries, randomization, math related classes, various data types, OAuth, OpenID, REST, reflection, code gen, various web services (Twitter, Hulu, Netflix, etc.), events, speech synthesis, speech recognition, code profiling, etc. Note that this is the package that will be updated going forward.</d:Summary>
+      <d:Description>Craig's Utility Library is a set of utility classes to handle various tasks including encryption, compression, serialization, file management, email, image manipulation, Active Directory, Exchange, SQL, various file formats (CSV, iCal, etc.), Cisco phone apps, WMI queries, randomization, math related classes, various data types, OAuth, OpenID, REST, reflection, code gen, various web services (Twitter, Hulu, Netflix, etc.), events, speech synthesis, speech recognition, code profiling, etc. Note that this is the package that will be updated going forward.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>Hykn9fh1INuyOB9JOFJulRFx4RvHvf5Nek7sBtM8/2gK42zAgbLSKetV+2pRAyfMR/lWRcAKEjmTplU+3Mv7Rw==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">216712</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">26</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T16:05:16.507</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T16:05:16.507</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T16:05:17.457</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">26</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags xml:space="preserve"> utility, utilities </d:Tags>
+      <d:Dependencies></d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-Cisco',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Cisco',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Cisco',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-Cisco',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-Cisco/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-Cisco</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library Cisco Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The Cisco namespace of the CUL library.</d:Summary>
+      <d:Description>The Cisco namespace of the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>dTspIxbwfPk76sKQlhi7b14fl/S0LgCHZfNDhZar67eIRXcCkC/iUK+wVwvo/3fMo2Yw2JeZBjD7G/IzY3+EFQ==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">11276</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">12</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:05:37.723</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:05:37.723</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:05:38.62</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">12</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies></d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-Cisco/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-Cisco/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-Classifier',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Classifier',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Classifier',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-Classifier',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-Classifier/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-Classifier</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library Classifier Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The Classifier namespace in the CUL library.</d:Summary>
+      <d:Description>The Classifier namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>El3gdPvJG2Qicuw4kO6xr2suub5qUlk3ucAHp4z25xKBvReJ43Zy8BUAqLafzSmB41fXrd6Q2nb0C/pa0d9GXw==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">8207</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">12</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:37:31.463</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:37:31.463</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:37:31.9</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">12</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies>CraigsUtilityLibrary-Events:2.1|CraigsUtilityLibrary-DataTypes:2.1|CraigsUtilityLibrary-Math:2.1</d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-Classifier/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-Classifier/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-Compression',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Compression',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Compression',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-Compression',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-Compression/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-Compression</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library Compression Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The Compression namespace in the CUL library.</d:Summary>
+      <d:Description>The Compression namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>DJvGrnH82NNdCjEXeUsFz/5r3ulOfwBbH9pXgWoUdtKqEAh1cwVQNRr1NVDZxntJ0IEine2BhWPm0p56mmonyg==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">5635</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">13</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:10:33.53</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:10:33.53</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:10:33.907</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">13</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies></d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-Compression/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-Compression/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-DataTypes',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-DataTypes',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-DataTypes',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-DataTypes',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-DataTypes/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-DataTypes</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library DataTypes Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The DataTypes namespace in the CUL library.</d:Summary>
+      <d:Description>The DataTypes namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>L4URGZ2QbbeJlWYOKsaoF3fzoNUOLzGGn8rzI/jIWmXPR8OS+G4SCSHa2tbonCsHGfbDq7IiJn0/sGp/A2/ZIw==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">21517</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">20</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:18:50.223</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:18:50.223</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:18:50.577</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">20</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies>CraigsUtilityLibrary-Events:2.1</d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-DataTypes/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-DataTypes/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-Encryption',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Encryption',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Encryption',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-Encryption',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-Encryption/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-Encryption</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library Encryption Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The Encryption namespace in the CUL library.</d:Summary>
+      <d:Description>The Encryption namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>c2gKXdR1rjrI8Rs2PxytEDHX6qc0mHOSJdPa779rwY3xyPdVjMmpPSTOfkEMkxASIauq2C2XMF1JKid12dgJXw==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">8448</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">20</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:12:41.627</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:12:41.627</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:12:41.993</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">20</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies></d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-Encryption/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-Encryption/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-Environment',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Environment',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Environment',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-Environment',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-Environment/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-Environment</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library Environment Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The Environment namespace in the CUL library.</d:Summary>
+      <d:Description>The Environment namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>M/FRjNCEB7HiZIfL1GNkbnpnTMVF4mtGiOV9Cw5mIfmYStfzVPIZPnULcyo7KzeF3OMw3MVM5YW4nyrc/lk+5g==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">12690</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">13</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:40:04.37</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:40:04.37</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:40:04.747</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">13</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies>CraigsUtilityLibrary-Events:2.1|CraigsUtilityLibrary-DataTypes:2.1|CraigsUtilityLibrary-IO:2.1|CraigsUtilityLibrary-Reflection:2.1</d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-Environment/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-Environment/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-Error',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Error',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Error',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-Error',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-Error/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-Error</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library Error Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The Error namespace in the CUL library.</d:Summary>
+      <d:Description>The Error namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>ZEAdhHzn78BInTb48kt0lPjObBOlqbSbjPYiy2zkL8mKPQ5225L1ZhP5+HMAPvg0CBmPK5IXv90/Y+cay/L1hg==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">6185</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">12</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:43:14.31</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:43:14.31</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:43:14.76</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">12</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies>CraigsUtilityLibrary-Events:2.1|CraigsUtilityLibrary-DataTypes:2.1|CraigsUtilityLibrary-IO:2.1|CraigsUtilityLibrary-Reflection:2.1|CraigsUtilityLibrary-Encryption:2.1|CraigsUtilityLibrary-Environment:2.1|CraigsUtilityLibrary-FileFormats:2.1|CraigsUtilityLibrary-Random:2.1|CraigsUtilityLibrary-Web:2.1</d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-Error/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-Error/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-Events',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Events',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Events',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-Events',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-Events/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-Events</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library Events Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The Events namespace in the CUL library.</d:Summary>
+      <d:Description>The Events namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>8iDrtL8feexJokpVaCq5xlcSjApC1Bi+BeOZ06FvS/XcTHyoPFMEC51i5DJoRJuLak8Sujc4JcYjQrN+V/Jw9w==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">5876</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">20</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:13:51.817</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:13:51.817</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:13:52.177</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">20</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies></d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-Events/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-Events/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-Exchange',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Exchange',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Exchange',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-Exchange',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-Exchange/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-Exchange</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library Exchange Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The Exchange namespace in the CUL library.</d:Summary>
+      <d:Description>The Exchange namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>lNV7dc3jL5BiHlBtK/kdSMsYNOa0jYrSYtNPLlQSYp1y+edJ78xpoxnId8ohKWDTbI+Hm0KRUSYg2U7JiK9YjA==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">16718</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">13</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:45:35.973</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:45:35.973</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:45:36.523</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">13</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies>CraigsUtilityLibrary-Events:2.1|CraigsUtilityLibrary-DataTypes:2.1|CraigsUtilityLibrary-IO:2.1|CraigsUtilityLibrary-Reflection:2.1|CraigsUtilityLibrary-Encryption:2.1|CraigsUtilityLibrary-FileFormats:2.1|CraigsUtilityLibrary-Random:2.1|CraigsUtilityLibrary-Web:2.1|CraigsUtilityLibrary-LDAP:2.1</d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-Exchange/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-Exchange/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-FileFormats',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-FileFormats',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-FileFormats',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-FileFormats',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-FileFormats/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-FileFormats</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library FileFormats Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The FileFormats namespace in the CUL library.</d:Summary>
+      <d:Description>The FileFormats namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>faUfuTGjNVJ+NGN7P5859ag+Qr+x//bAXN28pFzjsuvOCl2m8G9Qq3a3gP5EMK34m2zpJimoL3r1Vq3j6OLkSA==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">41431</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">14</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:23:35.95</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:23:35.95</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:23:36.31</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">14</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies>CraigsUtilityLibrary-Events:2.1|CraigsUtilityLibrary-DataTypes:2.1|CraigsUtilityLibrary-IO:2.1</d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-FileFormats/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-FileFormats/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-IO',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-IO',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-IO',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-IO',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-IO/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-IO</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library IO Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The IO namespace in the CUL library.</d:Summary>
+      <d:Description>The IO namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>WwosjNnOUlcGVzl0qLGmTvyjpFuLXl5+jWNo9a9gAAQWGPWOiCO1dTI+iN9DKgHU3YAdbqS55PgxjTYHEHr3PQ==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">10483</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">20</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:21:15.14</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:21:15.14</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:21:15.503</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">20</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies>CraigsUtilityLibrary-Events:2.1|CraigsUtilityLibrary-DataTypes:2.1</d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-IO/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-IO/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-LDAP',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-LDAP',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-LDAP',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-LDAP',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-LDAP/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-LDAP</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library LDAP Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The LDAP namespace in the CUL library.</d:Summary>
+      <d:Description>The LDAP namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>XisdNKjlORTTvG9DoYYD6TM0h0oyf4GR4GMrFDTVXmcu1K6q3XDzoH7FF9WBhFuiklWbjBNlCDiYJfVg8Laiyw==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">8959</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">13</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:14:58.337</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:14:58.337</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:14:58.683</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">13</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies></d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-LDAP/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-LDAP/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-Math',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Math',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Math',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-Math',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-Math/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-Math</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library Math Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The Math namespace in the CUL library.</d:Summary>
+      <d:Description>The Math namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>06u4iYUpwA0Y+mXNKlRU1CWWpyrnNh4AE7ohpFXZAclnNt/5pqou8VzrLXIgqmbtN33/R9XHup36H4m0L5OCrw==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">11479</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">12</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:25:16.09</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:25:16.09</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:25:16.617</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">12</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies>CraigsUtilityLibrary-Events:2.1|CraigsUtilityLibrary-DataTypes:2.1</d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-Math/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-Math/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-Media',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Media',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Media',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-Media',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-Media/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-Media</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library Media Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The Media namespace in the CUL library.</d:Summary>
+      <d:Description>The Media namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>E4xAn83RwrALb+mCID5lo5JWAlDrOFamwKyINErl9VWYZYF+XquHcCA+rf89SEBnpX6WnnNG7zkcRDt4LznGBw==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">30582</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">12</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:47:15.68</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:47:15.68</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:47:16.033</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">12</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies>CraigsUtilityLibrary-Events:2.1|CraigsUtilityLibrary-DataTypes:2.1|CraigsUtilityLibrary-IO:2.1|CraigsUtilityLibrary-Math:2.1|CraigsUtilityLibrary-Random:2.1</d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-Media/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-Media/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-Multithreading',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Multithreading',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Multithreading',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-Multithreading',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-Multithreading/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-Multithreading</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library Multithreading Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The Multithreading namespace in the CUL library.</d:Summary>
+      <d:Description>The Multithreading namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>msUHoidtodIqidIZ3g8+uneCUhDDerIDJ1JGTJY9Ydt2emxTbUKepFggouwIwITPjqfxaoUju7hZdIatwp8B2g==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">6718</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">13</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:27:09.917</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:27:09.917</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:27:10.377</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">13</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies>CraigsUtilityLibrary-Events:2.1</d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-Multithreading/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-Multithreading/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-Profiler',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Profiler',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Profiler',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-Profiler',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-Profiler/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-Profiler</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library Profiler Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The Profiler namespace in the CUL library.</d:Summary>
+      <d:Description>The Profiler namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>MZbcPXpMprTErAWB0CNwWjPxkL0QxoJ/6cz8WBoAaRVUKZ3G46nGYiXC35Xl8f9GA+zoEAt5M1WlhH4u2R1GQQ==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">7194</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">12</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:28:54.307</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:28:54.307</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:28:54.67</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">12</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies>CraigsUtilityLibrary-Events:2.1|CraigsUtilityLibrary-DataTypes:2.1</d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-Profiler/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-Profiler/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-Random',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Random',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Random',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-Random',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-Random/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-Random</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library Random Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The Random namespace in the CUL library.</d:Summary>
+      <d:Description>The Random namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>AuHBlLG+tl1Q2BSOIeAWghsV/pQUrjeysuGfhfCv5m7eQng/T08x6AqOjaIhb0e4zN86d47gUDswzLQRthOpAg==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">11157</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">14</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:29:48.807</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:29:48.807</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:29:49.157</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">14</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies>CraigsUtilityLibrary-Events:2.1|CraigsUtilityLibrary-DataTypes:2.1</d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-Random/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-Random/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-Reflection',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Reflection',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Reflection',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-Reflection',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-Reflection/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-Reflection</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library Reflection Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The Reflection namespace in the CUL library.</d:Summary>
+      <d:Description>The Reflection namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>PDsm45UFgTrRiw0jHSpUxNo75if2FxTvBRgfq4obwuqeo0FZ03gfB6Mu5+d80mQdsoXQWGOP5L9PvfRasYlooA==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">33111</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">20</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:31:19.777</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:31:19.777</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:31:20.127</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">20</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies>CraigsUtilityLibrary-Events:2.1|CraigsUtilityLibrary-DataTypes:2.1|CraigsUtilityLibrary-IO:2.1</d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-Reflection/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-Reflection/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-SQL',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-SQL',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-SQL',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-SQL',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-SQL/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-SQL</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library SQL Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The SQL namespace in the CUL library.</d:Summary>
+      <d:Description>The SQL namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>nC1zPi+nNHXTiAAJ4gEvT+WepnSfQkK8SdkTIjyhSLaCTEaRSlfLdaJs2GgWI2Sl6tGr89K3WBueWyw9xLTeyw==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">18090</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">13</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:32:12.85</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:32:12.85</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:32:13.317</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">13</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies>CraigsUtilityLibrary-Events:2.1|CraigsUtilityLibrary-DataTypes:2.1</d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-SQL/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-SQL/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigsUtilityLibrary-Web',Version='2.1')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Web',Version='2.1')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigsUtilityLibrary-Web',Version='2.1')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigsUtilityLibrary-Web',Version='2.1')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigsUtilityLibrary-Web/2.1" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigsUtilityLibrary-Web</d:Id>
+      <d:Version>2.1</d:Version>
+      <d:Title>Craig's Utility Library Web Namespace</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType m:null="true"></d:PackageType>
+      <d:Summary>The Web namespace in the CUL library.</d:Summary>
+      <d:Description>The Web namespace in the CUL library.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>Yz/H5IBRLdmn5dCVAOZvP6VBnXLa/ckMvonI7s7uQsAAWLhfEmSuGNUi8tLDz+0HxCT4LYs0ZadDzV+KZFBT0A==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">52500</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">14</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-03-18T17:35:21.327</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-03-18T17:35:21.327</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-03-18T17:35:21.823</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">14</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies>CraigsUtilityLibrary-Events:2.1|CraigsUtilityLibrary-DataTypes:2.1|CraigsUtilityLibrary-Encryption:2.1|CraigsUtilityLibrary-FileFormats:2.1|CraigsUtilityLibrary-IO:2.1|CraigsUtilityLibrary-Random:2.1|CraigsUtilityLibrary-Reflection:2.1</d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigsUtilityLibrary-Web/2.1</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List//CraigsUtilityLibrary-Web/2.1</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+  <entry>
+    <id>http://packages.nuget.org/v1/FeedService.svc/Packages(Id='CraigUtilityLibrary',Version='2.0')</id>
+    <title type="text"></title>
+    <updated>2011-03-31T01:47:48Z</updated>
+    <author>
+      <name />
+    </author>
+    <link rel="edit-media" title="PublishedPackage" href="Packages(Id='CraigUtilityLibrary',Version='2.0')/$value" />
+    <link rel="edit" title="PublishedPackage" href="Packages(Id='CraigUtilityLibrary',Version='2.0')" />
+    <link rel="http://schemas.microsoft.com/ado/2007/08/dataservices/related/Screenshots" type="application/atom+xml;type=feed" title="Screenshots" href="Packages(Id='CraigUtilityLibrary',Version='2.0')/Screenshots" />
+    <category term="Gallery.Infrastructure.FeedModels.PublishedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+    <content type="application/zip" src="http://packages.nuget.org/v1/Package/Download/CraigUtilityLibrary/2.0" />
+    <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+      <d:Id>CraigUtilityLibrary</d:Id>
+      <d:Version>2.0</d:Version>
+      <d:Title>Craig's Utility Library</d:Title>
+      <d:Authors>James Craig</d:Authors>
+      <d:PackageType>Packages</d:PackageType>
+      <d:Summary>Craig's Utility Library is a set of utility classes designed to handle various tasks, data types, etc.</d:Summary>
+      <d:Description>Craig's Utility Library is a set of utility classes to handle various tasks including encryption, compression, serialization, file management, email, image manipulation, Active Directory, Exchange, SQL, various file formats (CSV, iCal, etc.), Cisco phone apps, WMI queries, randomization, math related classes, various data types, OAuth, OpenID, REST, reflection, code gen, various web services (Twitter, Hulu, Netflix, etc.), events, speech synthesis, speech recognition, code profiling, etc.</d:Description>
+      <d:Copyright m:null="true"></d:Copyright>
+      <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+      <d:PackageHash>D/CNBADP7dOdocn00knIM5QGqRPL8BvwIzp3NcDX6ScoUWl8vQfs6ohY1/tdJwSZ8xK3Q6/O9XnQ4y1BpOFB0Q==</d:PackageHash>
+      <d:PackageSize m:type="Edm.Int64">155545</d:PackageSize>
+      <d:Price m:type="Edm.Decimal">0</d:Price>
+      <d:RequireLicenseAcceptance m:type="Edm.Boolean">true</d:RequireLicenseAcceptance>
+      <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+      <d:VersionRating m:type="Edm.Double">0</d:VersionRating>
+      <d:VersionRatingsCount m:type="Edm.Int32">0</d:VersionRatingsCount>
+      <d:VersionDownloadCount m:type="Edm.Int32">188</d:VersionDownloadCount>
+      <d:Created m:type="Edm.DateTime">2011-02-02T01:26:52.23</d:Created>
+      <d:LastUpdated m:type="Edm.DateTime">2011-02-02T01:26:57.217</d:LastUpdated>
+      <d:Published m:type="Edm.DateTime">2011-02-02T01:26:59.67</d:Published>
+      <d:ExternalPackageUrl m:null="true"></d:ExternalPackageUrl>
+      <d:ProjectUrl>http://cul.codeplex.com/</d:ProjectUrl>
+      <d:LicenseUrl>http://cul.codeplex.com/license</d:LicenseUrl>
+      <d:IconUrl m:null="true"></d:IconUrl>
+      <d:Rating m:type="Edm.Double">0</d:Rating>
+      <d:RatingsCount m:type="Edm.Int32">0</d:RatingsCount>
+      <d:DownloadCount m:type="Edm.Int32">188</d:DownloadCount>
+      <d:Categories m:null="true"></d:Categories>
+      <d:Tags m:null="true"></d:Tags>
+      <d:Dependencies></d:Dependencies>
+      <d:ReportAbuseUrl>http://nuget.org/Package/ReportAbuse/CraigUtilityLibrary/2.0</d:ReportAbuseUrl>
+      <d:GalleryDetailsUrl>http://nuget.org/List/Packages/CraigUtilityLibrary/2.0</d:GalleryDetailsUrl>
+    </m:properties>
+  </entry>
+</feed>
