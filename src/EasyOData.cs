@@ -473,6 +473,7 @@ namespace EasyOData {
 
 		public Entity this[int index] {
 			get { Execute(); return base[index]; }
+			set { base[index] = value; }
 		}
 
 		public bool Contains(Entity entity) {
