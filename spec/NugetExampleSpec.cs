@@ -46,6 +46,10 @@ namespace EasyOData.Specs {
 			packages.Count.ShouldEqual(564);
 			packages.First["Id"].ShouldEqual("51Degrees.mobi");
 			packages.Last["Id"].ShouldEqual("YUICompressor.NET");
+
+			// can explicitly call All to fire get everything
+			packages.All.Count.ShouldEqual(564);
+			packages.All.First()["Id"].ShouldEqual("51Degrees.mobi");
 		}
 
 		[Test]

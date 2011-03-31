@@ -660,6 +660,7 @@ namespace EasyOData {
 		public Entity First { get { return Query.First; } }
 		public Entity Last  { get { return Query.Last;  } }
 		public int    Count { get { return Query.Count; } }
+		public Query  All   { get { return Query;       } }
 
 		// We delegate all Querying calls to Query allowing us to say collection.Top() instead of collection.Query.Top();
 		public Query Pages(int number)              { return Query.Pages(number);           }
