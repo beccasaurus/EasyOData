@@ -588,6 +588,8 @@ namespace EasyOData {
 				return string.Format("'{0}'", o);
 			else if (o is Guid)
 				return string.Format("guid'{0}'", o);
+			else if (o is bool)
+				return o.ToString().ToLower();
 			else
 				return o.ToString();
 		}
@@ -597,6 +599,8 @@ namespace EasyOData {
 				return string.Format("'{0}'", (o as string).UrlEncode());
 			else if (o is Guid)
 				return string.Format("guid'{0}'", o);
+			else if (o is bool)
+				return o.ToString().ToLower();
 			else
 				return o.ToString();
 		}
